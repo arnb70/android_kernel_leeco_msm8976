@@ -753,7 +753,6 @@ static int camera_v4l2_close(struct file *filep)
 		return -EIO;
 
 	mutex_lock(&pvdev->video_drvdata_mutex);
-	mutex_lock(&session->close_lock);
 	opn_idx = atomic_read(&pvdev->opened);
 	mask = (1 << sp->stream_id);
 	opn_idx &= ~mask;
