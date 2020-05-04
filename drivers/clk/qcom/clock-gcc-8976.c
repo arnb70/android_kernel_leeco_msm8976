@@ -1300,11 +1300,13 @@ static struct clk_freq_tbl ftbl_gfx3d_clk_src[] = {
 	F( 266666667,          gpll0,    3,    0,     0),
 	F( 300000000,    gpll4_gfx3d,    4,    0,     0),
 	F( 366670000,          gpll3,    3,    0,     0),
-	F( 400000000,          gpll0,    2,    0,     0),
-	F( 432000000,    gpll6_gfx3d,  2.5,    0,     0),
-	F( 480000000,    gpll4_gfx3d,  2.5,    0,     0),
-	F( 550000000,          gpll3,    2,    0,     0),
-	F( 600000000,    gpll4_gfx3d,    2,    0,     0),
+	F( 480000000,          gpll0,    2,    0,     0),
+	F( 550000000,    gpll6_gfx3d,  2.5,    0,     0),
+	F( 600000000,    gpll4_gfx3d,  2.5,    0,     0),
+	F( 623330000,          gpll3,    2,    0,     0),
+	F( 660000000,    gpll4_gfx3d,    2,    0,     0),
+	F( 710000000,    gpll2_gfx3d,  1.5,    0,     0),
+	F( 805000000,          gpll3,  1.5,    0,     0),
 	F_END
 };
 
@@ -1568,9 +1570,9 @@ static struct rcg_clk vcodec0_clk_src = {
 	.c = {
 		.dbg_name = "vcodec0_clk_src",
 		.ops = &clk_ops_rcg_mnd,
-		VDD_DIG_FMAX_MAP5(LOWER, 228570000, LOW, 310667000,
-		NOMINAL, 360000000, NOM_PLUS, 400000000,
-		HIGH, 466000000),
+		VDD_DIG_FMAX_MAP5(LOWER, 300000000, LOW, 366670000,
+		NOMINAL, 366670000, NOM_PLUS, 480000000,
+		HIGH, 805000000),
 		CLK_INIT(vcodec0_clk_src.c),
 	},
 };
