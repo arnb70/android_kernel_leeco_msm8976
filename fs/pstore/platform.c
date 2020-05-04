@@ -195,7 +195,11 @@ static void pstore_console_write(struct console *con, const char *s, unsigned c)
 		} else {
 			spin_lock_irqsave(&psinfo->buf_lock, flags);
 		}
+#ifdef CONFIG_YL_PSTORE
+		memcpy_pstore(psinfo->buf, s, c);
+#else
 		memcpy(psinfo->buf, s, c);
+#endif
 		psinfo->write(PSTORE_TYPE_CONSOLE, 0, &id, 0, 0, c, psinfo);
 		spin_unlock_irqrestore(&psinfo->buf_lock, flags);
 		s += c;

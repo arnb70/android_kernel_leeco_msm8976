@@ -4631,6 +4631,25 @@ static irqreturn_t msm_id_irq(int irq, void *data)
 	return IRQ_HANDLED;
 }
 
+#ifdef CONFIG_YL_FAIRCHILDIC_USB_TYPEC
+static struct msm_otg *motg_for_typec = NULL;
+static int otg_power_set_property_usb(struct power_supply *psy,
+		enum power_supply_property psp,
+		const union power_supply_propval *val);
+/* DFP turn on vbus for UFP
+ * on = 1 turn on the vbus
+ * on = 0 turn off the vbus
+ */
+void dfp_vbus_switch(int on)
+{
+	union power_supply_propval val;
+
+	val.intval = on;
+	otg_power_set_property_usb(&motg_for_typec->usb_psy, POWER_SUPPLY_PROP_USB_OTG, &val);
+}
+EXPORT_SYMBOL(dfp_vbus_switch);
+#endif
+
 int msm_otg_pm_notify(struct notifier_block *notify_block,
 					unsigned long mode, void *unused)
 {
@@ -5808,6 +5827,10 @@ static int msm_otg_probe(struct platform_device *pdev)
 		ret = -ENOMEM;
 		return ret;
 	}
+
+#ifdef CONFIG_YL_FAIRCHILDIC_USB_TYPEC
+	motg_for_typec = motg;
+#endif
 
 	/*
 	 * USB Core is running its protocol engine based on CORE CLK,

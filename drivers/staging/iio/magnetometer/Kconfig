@@ -13,4 +13,6 @@ config SENSORS_HMC5843
 	  To compile this driver as a module, choose M here: the module
 	  will be called hmc5843.
 
+source "coolpad/drivers/staging/iio/magnetometer/Kconfig"
+
 endmenu

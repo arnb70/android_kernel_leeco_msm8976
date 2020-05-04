@@ -59,6 +59,12 @@ config PSTORE_RAM
 
 	  For more information, see Documentation/ramoops.txt.
 
+config YL_PSTORE
+	bool "add yulong pstore"
+	depends on PSTORE
+	help
+	yulong modify for different ddr size.
+
 config PSTORE_LAST_KMSG
        bool "export /proc/last_kmsg"
        default y

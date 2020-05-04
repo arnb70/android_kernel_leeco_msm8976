@@ -64,11 +64,13 @@
 #define SPIDEV_MAJOR		154	/* assigned */
 #define N_SPI_MINORS		32	/* ... up to 256 */
 
+/*< LAFITE-2842 add by zhangbin 20160229 begin>*/
 #define KEY_NAV_UP          400
 #define KEY_NAV_DOWN        401
 #define KEY_NAV_LEFT        402
 #define KEY_NAV_RIGHT       403
 
+/*< LAFITE-379 add fingerprint camera key and modify te file by zhangbin 20160116 begin>*/
 struct gf_key_map key_map[] =
 {
       {  "POWER",  KEY_POWER  },
@@ -87,10 +89,12 @@ struct gf_key_map key_map[] =
       {  "NAV_RIGHT",  KEY_NAV_RIGHT  },
       {  "CAMERA",  KEY_CAMERA    },
 };
+/*< LAFITE-379 add fingerprint camera key and modify te file by zhangbin 20160116 end>*/
 
 
 /**************************debug******************************/
 //#define GF_DEBUG
+/*< LAFITE-2842 add by zhangbin 20160229 end>*/
 /*#undef  GF_DEBUG*/
 
 #ifdef  GF_DEBUG
@@ -111,6 +115,7 @@ static DECLARE_BITMAP(minors, N_SPI_MINORS);
 static LIST_HEAD(device_list);
 static DEFINE_MUTEX(device_list_lock);
 static struct gf_dev gf;
+static struct class *gf_class;
 
 static void gf_enable_irq(struct gf_dev *gf_dev)
 {
@@ -338,11 +343,13 @@ static long gf_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 			retval = -EFAULT;
 			break;
 		}
+	/*< LAFITE-379 add fingerprint camera key and modify te file by zhangbin 20160116 begin>*/
 
 		for(i = 0; i< ARRAY_SIZE(key_map); i++) {
 			if(key_map[i].val == gf_key.key){
 				if(key_map[i].val == KEY_HOME) {
 					input_report_key(gf_dev->input, KEY_CAMERA, gf_key.value);
+/*< LAFITE-2842 add by zhangbin 20160229 begin>*/
                 }
                 else if(key_map[i].val == KEY_UP) {
                     input_report_key(gf_dev->input, KEY_NAV_UP, gf_key.value);
@@ -356,6 +363,7 @@ static long gf_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
                 else if(key_map[i].val == KEY_RIGHT) {
                     input_report_key(gf_dev->input, KEY_NAV_RIGHT, gf_key.value);
                 }
+/*< LAFITE-2842 add by zhangbin 20160229 end>*/
 				else {
 					input_report_key(gf_dev->input, gf_key.key, gf_key.value);
 				}
@@ -363,6 +371,7 @@ static long gf_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 				break;
 			}
 		}
+	/*< LAFITE-379 add fingerprint camera key and modify te file by zhangbin 20160116 end>*/
 
 		if(i == ARRAY_SIZE(key_map)) {
 			pr_warn("key %d not support yet \n", gf_key.key);
@@ -419,8 +428,13 @@ static long gf_compat_ioctl(struct file *filp, unsigned int cmd, unsigned long a
 
 static irqreturn_t gf_irq(int irq, void *handle)
 {
-	struct gf_dev *gf_dev = &gf;
-#ifdef GF_FASYNC
+    struct gf_dev *gf_dev = &gf;
+
+    wake_lock_timeout(&gf_dev->ttw_wl, msecs_to_jiffies(1000));
+#if defined(GF_NETLINK_ENABLE)
+    char temp = GF_NET_EVENT_IRQ;
+    sendnlmsg(&temp);
+#elif defined (GF_FASYNC)
 	if (gf_dev->async)
 		kill_fasync(&gf_dev->async, SIGIO, POLL_IN);
 #endif
@@ -527,6 +541,10 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 	struct fb_event *evdata = data;
 	unsigned int blank;
 
+#if defined(GF_NETLINK_ENABLE)
+	char temp = 0;
+#endif
+
 	if (val != FB_EARLY_EVENT_BLANK)
 		return 0;
 	pr_info("[info] %s go to the goodix_fb_state_chg_callback value = %d\n",
@@ -538,7 +556,10 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 		case FB_BLANK_POWERDOWN:
 			if (gf_dev->device_available == 1) {
 				gf_dev->fb_black = 1;
-#ifdef GF_FASYNC
+#if defined(GF_NETLINK_ENABLE)
+				temp = GF_NET_EVENT_FB_BLACK;
+				sendnlmsg(&temp);
+#elif defined (GF_FASYNC)
 				if (gf_dev->async) {
 					kill_fasync(&gf_dev->async, SIGIO, POLL_IN);
 				}
@@ -550,7 +571,10 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 		case FB_BLANK_UNBLANK:
 			if (gf_dev->device_available == 1) {
 				gf_dev->fb_black = 0;
-#ifdef GF_FASYNC
+#if defined(GF_NETLINK_ENABLE)
+				temp = GF_NET_EVENT_FB_UNBLACK;
+				sendnlmsg(&temp);
+#elif defined (GF_FASYNC)
 				if (gf_dev->async) {
 					kill_fasync(&gf_dev->async, SIGIO, POLL_IN);
 				}
@@ -585,7 +609,6 @@ static void gf_reg_key_kernel(struct gf_dev *gf_dev)
         pr_warn("Failed to register GF as input device.\n");
 }
 
-static struct class *gf_class;
 #if defined(USE_SPI_BUS)
 static int gf_probe(struct spi_device *spi)
 #elif defined(USE_PLATFORM_BUS)
@@ -596,7 +619,7 @@ static int gf_probe(struct platform_device *pdev)
 	int status = -EINVAL;
 	unsigned long minor;
 	int ret;
-	struct regulator *vreg;
+	/*struct regulator *vreg;*/
 	FUNC_ENTRY();
 	/* Initialize the driver data */
 	INIT_LIST_HEAD(&gf_dev->device_entry);
@@ -610,13 +633,17 @@ static int gf_probe(struct platform_device *pdev)
 	gf_dev->pwr_gpio = -EINVAL;
 	gf_dev->device_available = 0;
 	gf_dev->fb_black = 0;
+	pr_info("goodix:probe\n");
+/*< LAFITE-2842 add by zhangbin 20160229 begin>*/
     if (gf_parse_dts(gf_dev))
         goto error;
-/*
+/*< LAFITE-2842 add by zhangbin 20160229 end>*/
+
 	if (gf_power_on(gf_dev))
 		goto error;
-	gf_dev->device_available = 1;
-*/
+/*	gf_dev->device_available = 1;*/
+
+/***************
 	vreg = regulator_get(&gf_dev->spi->dev,"vdd_ana");
 	if (!vreg) {
 		dev_err(&gf_dev->spi->dev, "Unable to get vdd_ana\n");
@@ -630,6 +657,7 @@ static int gf_probe(struct platform_device *pdev)
 			goto error;
 		}
 	}
+
 	ret = regulator_enable(vreg);
 	mdelay(5);
 	if (ret) {
@@ -639,10 +667,14 @@ static int gf_probe(struct platform_device *pdev)
 		goto error;
 	}
 	dev_info(&gf_dev->spi->dev,"Set voltage on vdd_ana for goodix fingerprint");
+*****/
 
+/*< LAFITE-2842 add by zhangbin 20160229 begin>*/
     gpio_direction_output(gf_dev->reset_gpio, 1);
 //if (gf_parse_dts(gf_dev))
 //goto error;
+/*< LAFITE-2842 add by zhangbin 20160229 end>*/
+/*< LAFITE-560 resolve IRQ voltage and time series by zhangbin 20160114 end>*/
 	/* If we can allocate a minor number, hook up this device.
 	 * Reusing minors is fine so long as udev or mdev is working.
 	*/
@@ -672,6 +704,7 @@ static int gf_probe(struct platform_device *pdev)
 		if (gf_dev->input == NULL) {
 			dev_dbg(&gf_dev->input->dev,"Faile to allocate input device.\n");
 			status = -ENOMEM;
+			goto error;
 		}
 #ifdef AP_CONTROL_CLK
 		dev_info(&gf_dev->spi->dev,"Get the clk resource.\n");
@@ -689,7 +722,9 @@ static int gf_probe(struct platform_device *pdev)
 		fb_register_client(&gf_dev->notifier);
 		gf_reg_key_kernel(gf_dev);
 
-        gf_dev->irq = gf_irq_num(gf_dev);
+		wake_lock_init(&gf_dev->ttw_wl, WAKE_LOCK_SUSPEND, "goodix_ttw_wl");
+
+		gf_dev->irq = gf_irq_num(gf_dev);
 #if 1
 		ret = request_threaded_irq(gf_dev->irq, NULL, gf_irq,
 					   IRQF_TRIGGER_RISING | IRQF_ONESHOT,
@@ -701,7 +736,6 @@ static int gf_probe(struct platform_device *pdev)
 #endif
 		if (!ret) {
 			enable_irq_wake(gf_dev->irq);
-			gf_dev->irq_enabled = 1;
 			gf_disable_irq(gf_dev);
 		}
 	}
@@ -756,7 +790,9 @@ static int gf_remove(struct platform_device *pdev)
 	if (gf_dev->users == 0)
 		kfree(gf_dev);
 
+	fb_unregister_client(&gf_dev->notifier);
 	mutex_unlock(&device_list_lock);
+	wake_lock_destroy(&gf_dev->ttw_wl);
 
 	FUNC_EXIT();
 	return 0;
@@ -862,6 +898,10 @@ static int __init gf_init(void)
 		pr_warn("Failed to register SPI driver.\n");
 	}
 
+#ifdef GF_NETLINK_ENABLE
+	netlink_init();
+#endif
+
 	pr_info(" status = 0x%x\n", status);
 	FUNC_EXIT();
 	return 0;		//status;
@@ -871,6 +911,9 @@ module_init(gf_init);
 static void __exit gf_exit(void)
 {
 	FUNC_ENTRY();
+#ifdef GF_NETLINK_ENABLE
+    netlink_exit();
+#endif
 #if defined(USE_PLATFORM_BUS)
 	platform_driver_unregister(&gf_driver);
 #elif defined(USE_SPI_BUS)

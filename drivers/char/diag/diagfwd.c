@@ -225,7 +225,6 @@ void chk_logging_wakeup(void)
 		 */
 		if ((driver->data_ready[i] & USER_SPACE_DATA_TYPE) == 0) {
 			driver->data_ready[i] |= USER_SPACE_DATA_TYPE;
-			atomic_inc(&driver->data_ready_notif[i]);
 			pr_debug("diag: Force wakeup of logging process\n");
 			wake_up_interruptible(&driver->wait_q);
 		}
@@ -432,7 +431,6 @@ void diag_update_userspace_clients(unsigned int type)
 		if (driver->client_map[i].pid != 0 &&
 			!(driver->data_ready[i] & type)) {
 			driver->data_ready[i] |= type;
-			atomic_inc(&driver->data_ready_notif[i]);
 		}
 	wake_up_interruptible(&driver->wait_q);
 	mutex_unlock(&driver->diagchar_mutex);
@@ -447,7 +445,6 @@ void diag_update_sleeping_process(int process_id, int data_type)
 		if (driver->client_map[i].pid == process_id) {
 			if (!(driver->data_ready[i] & data_type)) {
 				driver->data_ready[i] |= data_type;
-				atomic_inc(&driver->data_ready_notif[i]);
 			}
 			break;
 		}
@@ -1563,8 +1560,6 @@ int diagfwd_init(void)
 							, GFP_KERNEL)) == NULL)
 		goto err;
 	kmemleak_not_leak(driver->data_ready);
-	for (i = 0; i < THRESHOLD_CLIENT_LIMIT; i++)
-		atomic_set(&driver->data_ready_notif[i], 0);
 	if (driver->apps_req_buf == NULL) {
 		driver->apps_req_buf = kzalloc(DIAG_MAX_REQ_SIZE, GFP_KERNEL);
 		if (!driver->apps_req_buf)

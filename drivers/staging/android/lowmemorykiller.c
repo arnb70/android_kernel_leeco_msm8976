@@ -88,9 +88,8 @@ static atomic_t shift_adj = ATOMIC_INIT(0);
 static short adj_max_shift = 353;
 
 /* User knob to enable/disable adaptive lmk feature */
-static int enable_adaptive_lmk = 0;
-static int enable_adaptive_lmk_dummy;
-module_param_named(enable_adaptive_lmk, enable_adaptive_lmk_dummy, int,
+static int enable_adaptive_lmk;
+module_param_named(enable_adaptive_lmk, enable_adaptive_lmk, int,
 	S_IRUGO | S_IWUSR);
 
 /*

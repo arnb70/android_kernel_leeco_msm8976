@@ -45,6 +45,36 @@
 #define MSM_V4L2_PIX_FMT_SRGGB14 v4l2_fourcc('R', 'G', '1', '4')
 	/* 14  RGRG.. GBGB.. */
 
+/*add camera module defines on 2016/05/04*/
+#define SENSOR_ID_8865 0x8865
+#define MODULE_SUNNY_8865 (SENSOR_ID_8865 << 16 | 0x01)
+#define MODULE_OFILM_8865 (SENSOR_ID_8865 << 16 | 0x07)
+#define MODULE_FOXCONN_8865 (SENSOR_ID_8865 << 16 | 0x11)
+#define MODULE_QTECH_8865 (SENSOR_ID_8865 << 16 | 0x06)
+
+#define SENSOR_ID_OV8856 0x885A
+#define MODULE_SUNNY_OV8856 (SENSOR_ID_OV8856 << 16 | 0x01)
+#define MODULE_OFILM_OV8856 (SENSOR_ID_OV8856 << 16 | 0x07)
+#define MODULE_QTECH_OV8856 (SENSOR_ID_OV8856 << 16 | 0x06)
+#define MODULE_ZHENGQIAO_OV8856 (SENSOR_ID_OV8856 << 16 | 0x08)
+
+#define SENSOR_ID_IMX219 0x0219
+#define MODULE_OFILM_IMX219 (SENSOR_ID_IMX219 << 16 | 0x07)
+#define MODULE_QTECH_IMX219 (SENSOR_ID_IMX219 << 16 | 0x06)
+
+#define SENSOR_ID_IMX214 0x0214
+#define MODULE_SUNNY_IMX214  (SENSOR_ID_IMX214 << 16 | 0x01)
+#define MODULE_OFILM_IMX214  (SENSOR_ID_IMX214 << 16 | 0x07)
+
+#define SENSOR_ID_OV16880 0x0168
+#define MODULE_OFILM_OV16880  (SENSOR_ID_OV16880 << 16 | 0x07)
+
+#define SENSOR_ID_IMX258 0x0258
+#define MODULE_SUNNY_IMX258 (SENSOR_ID_IMX258 << 16 | 0x01)
+#define MODULE_OFILM_IMX258 (SENSOR_ID_IMX258 << 16 | 0x07)
+#define MODULE_QTECH_IMX258 (SENSOR_ID_IMX258 << 16 | 0x06)
+#define MODULE_ZHENGQIAO_IMX258 (SENSOR_ID_IMX258 << 16 | 0x05)
+
 enum flash_type {
 	LED_FLASH = 1,
 	STROBE_FLASH,
@@ -258,6 +288,7 @@ enum eeprom_cfg_type_t {
 	CFG_EEPROM_WRITE_DATA,
 	CFG_EEPROM_GET_MM_INFO,
 	CFG_EEPROM_INIT,
+	CFG_EEPROM_DO_CALIBRATION,//ZTEMT:zhouruoyu add for factory altek 3D calibration
 };
 
 struct eeprom_get_t {
@@ -341,6 +372,9 @@ enum msm_actuator_cfg_type_t {
 	CFG_ACTUATOR_POWERDOWN,
 	CFG_ACTUATOR_POWERUP,
 	CFG_ACTUATOR_INIT,
+	// ZTEMT: fuyipeng add for manual AF -----start
+	CFG_SET_ACTUATOR_NAME,
+	// ZTEMT: fuyipeng add for manual AF -----end
 };
 
 struct msm_ois_opcode {
@@ -497,6 +531,9 @@ struct msm_actuator_cfg_data {
 		struct msm_actuator_get_info_t get_info;
 		struct msm_actuator_set_position_t setpos;
 		enum af_camera_name cam_name;
+	        // ZTEMT: fuyipeng add for manual AF -----start
+               char act_name[32];
+              // ZTEMT: fuyipeng add for manual AF -----end
 	} cfg;
 };
 

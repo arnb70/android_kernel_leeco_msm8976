@@ -3,6 +3,7 @@
 
 #include <linux/types.h>
 #include <linux/notifier.h>
+#include <linux/wakelock.h>
 /**********************************************************/
 enum FP_MODE{
 	GF_IMAGE_MODE = 0,
@@ -38,11 +39,15 @@ struct gf_key_map
 
 #define  GF_IOC_MAXNR    11
 
-/*#define AP_CONTROL_CLK       1 */
-#define  USE_PLATFORM_BUS    1
-//#define  USE_SPI_BUS	       1
-
+//#define AP_CONTROL_CLK       1
+#define  USE_PLATFORM_BUS     1
+//#define  USE_SPI_BUS	1
 #define GF_FASYNC   1	/*If support fasync mechanism.*/
+//#define GF_NETLINK_ENABLE 1
+#define GF_NET_EVENT_IRQ 1
+#define GF_NET_EVENT_FB_BLACK 2
+#define GF_NET_EVENT_FB_UNBLACK 3
+
 struct gf_dev {
 	dev_t devt;
 	struct list_head device_entry;
@@ -60,6 +65,7 @@ struct gf_dev {
 	signed irq_gpio;
 	signed reset_gpio;
 	signed pwr_gpio;
+	signed vdd_gpio;
 	int irq;
 	int irq_enabled;
 	int clk_enabled;
@@ -69,6 +75,7 @@ struct gf_dev {
 	struct notifier_block notifier;
 	char device_available;
 	char fb_black;
+	struct wake_lock ttw_wl;
 };
 
 int gf_parse_dts(struct gf_dev* gf_dev);
@@ -80,4 +87,7 @@ int gf_power_off(struct gf_dev *gf_dev);
 int gf_hw_reset(struct gf_dev *gf_dev, unsigned int delay_ms);
 int gf_irq_num(struct gf_dev *gf_dev);
 
+void sendnlmsg(char *message);
+int netlink_init(void);
+void netlink_exit(void);
 #endif /*__GF_SPI_H*/

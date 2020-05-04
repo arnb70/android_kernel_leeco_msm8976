@@ -28,5 +28,6 @@ obj-$(CONFIG_INPUT_APMPOWER)	+= apm-power.o
 obj-$(CONFIG_INPUT_KEYRESET)	+= keyreset.o
 obj-$(CONFIG_INPUT_KEYCOMBO)	+= keycombo.o
 obj-$(CONFIG_SENSORS_HALL)	+= hall_sensor.o
-
+#LAFITE-350 zb add fingerprint start 20151221
 obj-$(CONFIG_INPUT_FINGERPRINT) += fingerprint/
+#LAFITE-350 zb add fingerprint end 20151221

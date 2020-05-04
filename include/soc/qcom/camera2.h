@@ -107,10 +107,11 @@ struct msm_camera_power_ctrl_t {
 	struct camera_vreg_t *cam_vreg;
 	int num_vreg;
 	struct msm_camera_i2c_conf *i2c_conf;
+	struct clk **clk_ptr;
 	struct msm_cam_clk_info *clk_info;
 	struct msm_pinctrl_info pinctrl_info;
 	uint8_t cam_pinctrl_status;
-	uint16_t clk_info_size;
+	size_t clk_info_size;
 };
 
 enum msm_camera_actuator_name {
@@ -159,10 +160,8 @@ struct msm_camera_sensor_board_info {
 	const char *misc_regulator;
 	struct msm_camera_power_ctrl_t power_info;
 	struct msm_camera_sensor_slave_info *cam_slave_info;
-#ifdef CONFIG_MSMB_CAMERA_LEECO
 	const char *sensor_module_info;
 	uint8_t sensor_gpio_id;
-#endif
 };
 
 enum msm_camera_i2c_cmd_type {

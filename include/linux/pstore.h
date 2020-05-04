@@ -75,6 +75,9 @@ struct pstore_info {
 #ifdef CONFIG_PSTORE
 extern int pstore_register(struct pstore_info *);
 extern bool pstore_cannot_block_path(enum kmsg_dump_reason reason);
+#ifdef CONFIG_YL_PSTORE
+void *memcpy_pstore(void *dest, const void *src, size_t count);
+#endif
 #else
 static inline int
 pstore_register(struct pstore_info *psi)

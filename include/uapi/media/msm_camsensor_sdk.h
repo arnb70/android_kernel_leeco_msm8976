@@ -115,9 +115,7 @@ enum msm_sensor_power_seq_gpio_t {
 	SENSOR_GPIO_FL_RESET,
 	SENSOR_GPIO_CUSTOM1,
 	SENSOR_GPIO_CUSTOM2,
-#ifdef CONFIG_MSMB_CAMERA_LEECO
 	SENSOR_GPIO_ID,
-#endif
 	SENSOR_GPIO_MAX,
 };
 
@@ -187,6 +185,12 @@ enum msm_flash_cfg_type_t {
 	CFG_FLASH_OFF,
 	CFG_FLASH_LOW,
 	CFG_FLASH_HIGH,
+    //ZTEMT: added by congshan for front camera flash start
+	CFG_LCD_BKL_NORM,
+	CFG_LCD_BKL_LOW,
+	CFG_LCD_BKL_HIGH,
+	CFG_LCD_BKL_SET,
+	//ZTEMT: added by congshan for front camera flash end
 };
 
 enum msm_sensor_output_format_t {
@@ -194,6 +198,19 @@ enum msm_sensor_output_format_t {
 	MSM_SENSOR_YCBCR,
 	MSM_SENSOR_META,
 };
+/*ZTEMT: fengxun add for AL3200--------Start*/
+struct msm_camera_spi_reg_setting{
+	uint16_t opcode;
+	uint32_t size;
+	uint8_t *param;
+};
+
+struct msm_camera_spi_reg_setting32{
+	uint16_t opcode;
+	uint32_t size;
+	uint32_t param;
+};
+/*ZTEMT: fengxun add for AL3200--------End*/
 
 struct msm_sensor_power_setting {
 	enum msm_sensor_power_seq_type_t seq_type;
@@ -276,10 +293,8 @@ struct msm_camera_sensor_slave_info {
 	unsigned char  is_init_params_valid;
 	struct msm_sensor_init_params sensor_init_params;
 	enum msm_sensor_output_format_t output_format;
-#ifdef CONFIG_MSMB_CAMERA_LEECO
 	char sensor_module_info[64];
 	uint8_t sensor_gpio_id;
-#endif
 };
 
 struct msm_camera_i2c_reg_array {
