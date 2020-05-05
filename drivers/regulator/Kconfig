@@ -628,5 +628,8 @@ config REGULATOR_CPR2_GFX
 	  graphics (GFX) rail. The GFX CPR2 controller monitors the graphics voltage
 	  requirements. This driver reads initial voltage values out of hardware
 	  fuses and CPR target quotient values out of device tree.
+
+source "coolpad/drivers/regulator/Kconfig"
+
 endif
 

@@ -27,7 +27,9 @@
 
 #include <asm/hardware_info.h>
 
+/* Modified by liuyongkang to wifi compatibility LAFITE-5087 2016-03-21 begin */
 #include <../../net/wireless/wcnss/detect_wcnss_fem.h>
+/* Modified by liuyongkang to wifi compatibility LAFITE-5087 2016-03-21 end */
 
 static struct platform_device *hardware_info_pdev = NULL;
 static DEFINE_MUTEX(registration_lock);
@@ -64,7 +66,9 @@ static DEFINE_MUTEX(registration_lock);
 	HARDWARE_INFO_ATTR(nfc);
 	HARDWARE_INFO_ATTR(wifi);
 	HARDWARE_INFO_ATTR(bluetooth);
+	/* < LAFITE-1492 lichuangchuang 20160216 begin */
 	HARDWARE_INFO_ATTR(board_id);
+	/* LAFITE-1492 lichuangchuang 20160216 end > */
 
 
 static struct hardware_info_pdata hardware_info_data =
@@ -84,7 +88,9 @@ static struct hardware_info_pdata hardware_info_data =
 	.nfc = "nfc",
 	.wifi="wifi",
 	.bluetooth="bluetooth",
+	/* < LAFITE-1492 lichuangchuang 20160216 begin */
 	.bluetooth="board_id",
+	/* LAFITE-1492 lichuangchuang 20160216 end > */
 };
 
 static int hardware_info_probe(struct platform_device *pdev)
@@ -94,11 +100,15 @@ static int hardware_info_probe(struct platform_device *pdev)
 	hardware_pdata = pdev->dev.platform_data;
 	platform_set_drvdata(pdev, hardware_pdata);
 	hardware_info_pdev = pdev;
+	/*LAFITE-471:yuquan added begin:add sensor hardware info*/
 	register_hardware_info(GSENSOR, "sorry,gsensor not detected");
 	register_hardware_info(MSENSOR, "sorry,msensor not detected");
 	register_hardware_info(ALS_PS, "sorry,als and ps not detected");
 	register_hardware_info(GYRO, "sorry,gyro not detected");
+	/*LAFITE-471:yuquan added end:add sensor hardware info*/
+	/*Modified by jiashaojing for led information in hardware_info, LAFITE-1120 (ql1530) 2016/01/26, begin*/
 	register_hardware_info(FLASH, "PHILIPS Dual LED LXCL-SW08/SA08-0001 1A");
+	/*Modified by jiashaojing for led information in hardware_info, LAFITE-1120 (ql1530) 2016/01/26, end*/
 	return 0;
 }
 
@@ -107,6 +117,7 @@ static int hardware_info_remove(struct platform_device *pdev)
 	return 0;
 }
 
+/* Modified by liuyongkang to wifi compatibility LAFITE-5087 2016-03-21 begin */
 #ifdef COMPATIBLE_WCNSS_NV
 static char board_id_buf[BOARD_ID_SIZE+1];
 
@@ -116,6 +127,7 @@ void obtain_hw_board_id(char *buf)
 }
 EXPORT_SYMBOL(obtain_hw_board_id);
 #endif
+/* Modified by liuyongkang to wifi compatibility LAFITE-5087 2016-03-21 end */
 
 int register_hardware_info(HARDWARE_ID id, char* name)
 {
@@ -235,18 +247,22 @@ int register_hardware_info(HARDWARE_ID id, char* name)
 			  printk("%s:error on device_create_file %s\n", __func__, name);
 			}
 		break;
+	/* < LAFITE-1492 lichuangchuang 20160216 begin */
 	case BOARD_ID:
 			snprintf(hardware_info->board_id, 125,name);
 			ret = device_create_file(&hardware_info_pdev->dev, &dev_attr_board_id);
 			if (ret) {
 			  printk("%s:error on device_create_file %s\n", __func__, name);
 			}
+			/* Modified by liuyongkang to wifi compatibility LAFITE-5087 2016-03-21 begin */
 			#ifdef COMPATIBLE_WCNSS_NV
 			memset(board_id_buf, 0, sizeof(board_id_buf));
 			strncpy(board_id_buf, name, BOARD_ID_SIZE);
 			printk("%s board id is: %s\n", __func__, board_id_buf);
 			#endif
+			/* Modified by liuyongkang to wifi compatibility LAFITE-5087 2016-03-21 end */
 		break;
+	/* LAFITE-1492 lichuangchuang 20160216 end > */
 
 	default:
 		ret = -1;

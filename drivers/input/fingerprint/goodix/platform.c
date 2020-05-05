@@ -21,7 +21,7 @@ int gf_parse_dts(struct gf_dev* gf_dev)
     int rc = 0;
 
     /*get pwr resource*/
-/*	gf_dev->pwr_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node,"goodix,gpio_pwr",0);
+    gf_dev->pwr_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node,"goodix,gpio_pwr",0);
     if(!gpio_is_valid(gf_dev->pwr_gpio)) {
         pr_info("PWR GPIO is invalid.\n");
         return -1;
@@ -31,7 +31,18 @@ int gf_parse_dts(struct gf_dev* gf_dev)
         dev_err(&gf_dev->spi->dev, "Failed to request PWR GPIO. rc = %d\n", rc);
         return -1;
     }
-*/
+
+    gf_dev->vdd_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node,"goodix,gpio_vdd",0);
+    if(!gpio_is_valid(gf_dev->vdd_gpio)) {
+        pr_info("PWR GPIO is invalid.\n");
+        return -1;
+    }
+    rc = gpio_request(gf_dev->vdd_gpio, "goodix_vdd");
+    if(rc) {
+        dev_err(&gf_dev->spi->dev, "Failed to request vdd GPIO. rc = %d\n", rc);
+        return -1;
+    }
+
     /*get reset resource*/
     gf_dev->reset_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node,"goodix,gpio_reset",0);
     if(!gpio_is_valid(gf_dev->reset_gpio)) {
@@ -43,7 +54,6 @@ int gf_parse_dts(struct gf_dev* gf_dev)
         dev_err(&gf_dev->spi->dev, "Failed to request RESET GPIO. rc = %d\n", rc);
         return -1;
     }
-    gpio_direction_output(gf_dev->reset_gpio, 1);
 
     /*get irq resourece*/
     gf_dev->irq_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node,"goodix,gpio_irq",0);
@@ -61,8 +71,10 @@ int gf_parse_dts(struct gf_dev* gf_dev)
     gpio_direction_input(gf_dev->irq_gpio);
 
     //power on
-//	gpio_direction_output(gf_dev->pwr_gpio, 1);
-
+    gpio_direction_output(gf_dev->pwr_gpio, 1);
+    gpio_direction_output(gf_dev->vdd_gpio, 1);
+    usleep_range(5000, 5100);
+    gpio_direction_output(gf_dev->reset_gpio, 1);
     return 0;
 }
 
@@ -77,36 +89,44 @@ void gf_cleanup(struct gf_dev	* gf_dev)
         gpio_free(gf_dev->reset_gpio);
         pr_info("remove reset_gpio success\n");
     }
-/*	if (gpio_is_valid(gf_dev->pwr_gpio)){
+	if (gpio_is_valid(gf_dev->pwr_gpio)){
         gpio_free(gf_dev->pwr_gpio);
         pr_info("remove pwr_gpio success\n");
     }
-*/
+	if (gpio_is_valid(gf_dev->vdd_gpio)){
+        gpio_free(gf_dev->vdd_gpio);
+        pr_info("remove vdd_gpio success\n");
+    }
+
 }
 
 /*power management*/
 int gf_power_on(struct gf_dev* gf_dev)
 {
-    int rc = 0;
-/*	if (gpio_is_valid(gf_dev->pwr_gpio)) {
-        gpio_set_value(gf_dev->pwr_gpio, 1);
-    }
-*/
-    msleep(10);
-    pr_info("---- power on ok ----\n");
+	int rc = 0;
+	if (gpio_is_valid(gf_dev->pwr_gpio)) {
+		gpio_set_value(gf_dev->pwr_gpio, 1);
+	}
+	if (gpio_is_valid(gf_dev->vdd_gpio)) {
+		gpio_set_value(gf_dev->vdd_gpio, 1);
+	}
+	msleep(10);
+	pr_info("---- power on ok ----\n");
 
     return rc;
 }
 
 int gf_power_off(struct gf_dev* gf_dev)
 {
-    int rc = 0;
-/*	if (gpio_is_valid(gf_dev->pwr_gpio)) {
-        gpio_set_value(gf_dev->pwr_gpio, 1);
-    }
-*/
-    pr_info("---- power off ----\n");
-    return rc;
+	int rc = 0;
+	if (gpio_is_valid(gf_dev->pwr_gpio)) {
+		gpio_set_value(gf_dev->pwr_gpio, 1);
+	}
+	if (gpio_is_valid(gf_dev->vdd_gpio)) {
+		gpio_set_value(gf_dev->vdd_gpio, 1);
+	}
+	pr_info("---- power off ----\n");
+	return rc;
 }
 
 /********************************************************************

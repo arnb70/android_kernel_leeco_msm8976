@@ -4686,13 +4686,10 @@ static long calc_load_fold_active(struct rq *this_rq)
 static unsigned long
 calc_load(unsigned long load, unsigned long exp, unsigned long active)
 {
-	unsigned long newload;
-
-	newload = load * exp + active * (FIXED_1 - exp);
-	if (active >= load)
-		newload += FIXED_1-1;
-
-	return newload / FIXED_1;
+	load *= exp;
+	load += active * (FIXED_1 - exp);
+	load += 1UL << (FSHIFT - 1);
+	return load >> FSHIFT;
 }
 
 #ifdef CONFIG_NO_HZ_COMMON
@@ -9871,16 +9868,17 @@ static int cpuset_cpu_active(struct notifier_block *nfb, unsigned long action,
 		 * operation in the resume sequence, just build a single sched
 		 * domain, ignoring cpusets.
 		 */
-		partition_sched_domains(1, NULL, NULL);
-		if (--num_cpus_frozen)
+		num_cpus_frozen--;
+		if (likely(num_cpus_frozen)) {
+			partition_sched_domains(1, NULL, NULL);
 			break;
+		}
 
 		/*
 		 * This is the last CPU online operation. So fall through and
 		 * restore the original sched domains by considering the
 		 * cpuset configurations.
 		 */
-		cpuset_force_rebuild();
 
 	case CPU_ONLINE:
 	case CPU_DOWN_FAILED:

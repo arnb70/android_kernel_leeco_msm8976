@@ -88,9 +88,8 @@ static atomic_t shift_adj = ATOMIC_INIT(0);
 static short adj_max_shift = 353;
 
 /* User knob to enable/disable adaptive lmk feature */
-static int enable_adaptive_lmk = 0;
-static int enable_adaptive_lmk_dummy;
-module_param_named(enable_adaptive_lmk, enable_adaptive_lmk_dummy, int,
+static int enable_adaptive_lmk;
+module_param_named(enable_adaptive_lmk, enable_adaptive_lmk, int,
 	S_IRUGO | S_IWUSR);
 
 /*
@@ -133,7 +132,7 @@ int adjust_minadj(short *min_score_adj)
 static int lmk_vmpressure_notifier(struct notifier_block *nb,
 			unsigned long action, void *data)
 {
-	int other_free = 0, other_file = 0;
+	int other_free, other_file;
 	unsigned long pressure = action;
 	int array_size = ARRAY_SIZE(lowmem_adj);
 
@@ -143,7 +142,6 @@ static int lmk_vmpressure_notifier(struct notifier_block *nb,
 	if (pressure >= 95) {
 		other_file = global_page_state(NR_FILE_PAGES) -
 			global_page_state(NR_SHMEM) -
-			global_page_state(NR_UNEVICTABLE) -
 			total_swapcache_pages();
 		other_free = global_page_state(NR_FREE_PAGES);
 
@@ -157,7 +155,6 @@ static int lmk_vmpressure_notifier(struct notifier_block *nb,
 
 		other_file = global_page_state(NR_FILE_PAGES) -
 			global_page_state(NR_SHMEM) -
-			global_page_state(NR_UNEVICTABLE) -
 			total_swapcache_pages();
 
 		other_free = global_page_state(NR_FREE_PAGES);
@@ -424,8 +421,8 @@ static int lowmem_shrink(struct shrinker *s, struct shrink_control *sc)
 			break;
 		}
 	}
-	ret = adjust_minadj(&min_score_adj);
 	if (nr_to_scan > 0) {
+		ret = adjust_minadj(&min_score_adj);
 		lowmem_print(3, "lowmem_shrink %lu, %x, ofree %d %d, ma %hd\n",
 				nr_to_scan, sc->gfp_mask, other_free,
 				other_file, min_score_adj);
@@ -563,10 +560,14 @@ static int lowmem_shrink(struct shrinker *s, struct shrink_control *sc)
 		set_tsk_thread_flag(selected, TIF_MEMDIE);
 		send_sig(SIGKILL, selected, 0);
 		rem -= selected_tasksize;
+		rcu_read_unlock();
+		/* give the system time to free up the memory */
+		msleep_interruptible(20);
 		trace_almk_shrink(selected_tasksize, ret,
 			other_free, other_file, selected_oom_score_adj);
 	} else {
 		trace_almk_shrink(1, ret, other_free, other_file, 0);
+		rcu_read_unlock();
 	}
 
 	lowmem_print(4, "lowmem_shrink %lu, %x, return %d\n",

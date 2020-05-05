@@ -10,6 +10,8 @@ config ARM64
 	select ARM64_CPU_SUSPEND
 	select ARM_AMBA
 	select ARM_ARCH_TIMER
+	select HAVE_KERNEL_GZIP
+	select HAVE_KERNEL_LZ4
 	select ARM_GIC
 	select BUILDTIME_EXTABLE_SORT
 	select AUDIT_ARCH_COMPAT_GENERIC
@@ -747,5 +749,21 @@ source "crypto/Kconfig"
 if CRYPTO
 source "arch/arm64/crypto/Kconfig"
 endif
+source "lib/Kconfig"
+#/*< LAFITE-237 xingbin 20151218 begin */
+source "arch/arm64/product_list/Kconfig"
+#/* LAFITE-237 xingbin 20151218 end >*/
+
+config APP_PROFILE
+	bool "Enable app profile feature"
+	depends on ARCH_MSM
+	help
+	  Enable app profile to control cpu adn gpu freq
+
+config YL_SET_VOLTAGE_LEVEL
+	bool "Set voltage level"
+	depends on ARCH_MSM
+	  help
+	  Set voltage level
 
 source "lib/Kconfig"

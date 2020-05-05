@@ -200,11 +200,13 @@ config SENSORS_HALL
 	 Say y here if you want to use this hall sensor driver, it
 	 is like a switch. For example, lid.
 
+#LAFITE-350 zb add fingerprint start 20151221
 config INPUT_FINGERPRINT
-	tristate "fingerprint driver support"
+	tristate "fingerprint drvier support"
 	depends on INPUT
 	help
 	  Say Y here to enable goodix fingerprint driver support!
+#LAFITE-350 zb add fingerprint end 20151221
 
 comment "Input Device Drivers"
 
@@ -218,9 +220,13 @@ source "drivers/input/tablet/Kconfig"
 
 source "drivers/input/touchscreen/Kconfig"
 
+source "coolpad/drivers/input/fingerprint/Kconfig"
+
 source "drivers/input/misc/Kconfig"
 
+#LAFITE-350 zb add fingerprint start 20151221
 source "drivers/input/fingerprint/Kconfig"
+#LAFITE-350 zb add fingerprint end 20151221
 
 endif
 

@@ -58,3 +58,9 @@ config PSTORE_RAM
 	  "ramoops.ko".
 
 	  For more information, see Documentation/ramoops.txt.
+
+config YL_PSTORE
+	bool "add yulong pstore"
+	depends on PSTORE
+	help
+	yulong modify for different ddr size.

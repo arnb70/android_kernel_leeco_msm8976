@@ -65,7 +65,8 @@ MODULE_ALIAS("mmc:block");
 #define INAND_CMD38_ARG_SECTRIM2 0x88
 #define MMC_BLK_TIMEOUT_MS  (30 * 1000)        /* 30 sec timeout */
 
-#define mmc_req_rel_wr(req)	((req->cmd_flags & REQ_FUA) && \
+#define mmc_req_rel_wr(req)	(((req->cmd_flags & REQ_FUA) || \
+				  (req->cmd_flags & REQ_META)) && \
 				  (rq_data_dir(req) == WRITE))
 #define PACKED_CMD_VER	0x01
 #define PACKED_CMD_WR	0x02
@@ -178,6 +179,31 @@ static inline void mmc_blk_clear_packed(struct mmc_queue_req *mqrq)
 	packed->retries = 0;
 	packed->blocks = 0;
 }
+
+#ifdef CONFIG_MMC_YL_PARAMS
+extern int  yl_params_init(struct mmc_card *card);
+
+int yl_cmdq_switch(struct mmc_card *card, bool enable)
+{
+	struct mmc_blk_data *md;
+
+	int ret = 0;
+	md = mmc_get_drvdata(card);
+	if (false == enable) {
+		pr_err("mmc yl params operate exit cmdq!\n");
+		ret = mmc_blk_cmdq_switch(card, md, 0);
+	} else {
+		pr_err("mmc  yl params operate enter cmdq!\n");
+		ret = mmc_blk_cmdq_switch(card, md, 1);
+		if (0 == ret)
+			WARN_ON(mmc_cmdq_halt(card->host, false));
+		else
+			pr_err("mmc yl params operate enter cmdq err!\n");
+	}
+	return ret;
+}
+
+#endif
 
 static struct mmc_blk_data *mmc_blk_get(struct gendisk *disk)
 {
@@ -4244,6 +4270,12 @@ static int mmc_blk_probe(struct mmc_card *card)
 	mmc_set_bus_resume_policy(card->host, 1);
 	pr_debug("%s: enabling deferred resume !!!\n",
 			mmc_hostname(card->host));
+#endif
+#ifdef CONFIG_MMC_YL_PARAMS
+	if (strcmp(md->disk->disk_name, "mmcblk0") == 0) {
+		yl_params_init(card);
+		pr_info("call yl_params_init!\n");
+	}
 #endif
 	if (mmc_add_disk(md))
 		goto out;

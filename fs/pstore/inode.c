@@ -345,8 +345,11 @@ int pstore_mkfile(enum pstore_type_id type, char *psname, u64 id, int count,
 	dentry = d_alloc_name(root, name);
 	if (!dentry)
 		goto fail_lockedalloc;
-
+#ifdef CONFIG_YL_PSTORE
+	memcpy_pstore(private->data, data, size);
+#else
 	memcpy(private->data, data, size);
+#endif
 	inode->i_size = private->size = size;
 
 	inode->i_private = private;

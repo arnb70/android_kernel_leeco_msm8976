@@ -209,10 +209,15 @@ enum power_supply_property {
 	/* Local extensions of type int64_t */
 	POWER_SUPPLY_PROP_CHARGE_COUNTER_EXT,
 	/* Properties of type `const char *' */
+	POWER_SUPPLY_PROP_VENDOR,
 	POWER_SUPPLY_PROP_MODEL_NAME,
 	POWER_SUPPLY_PROP_MANUFACTURER,
 	POWER_SUPPLY_PROP_SERIAL_NUMBER,
 	POWER_SUPPLY_PROP_BATTERY_TYPE,
+	/* yulong add special properties */
+	/* Properties of type `const char *' */
+	/* return string when get property */
+	POWER_SUPPLY_PROP_YL_CRTL_CHG_INTERFACE,
 };
 
 enum power_supply_type {
@@ -230,6 +235,7 @@ enum power_supply_type {
 	POWER_SUPPLY_TYPE_BMS,		/* Battery Monitor System */
 	POWER_SUPPLY_TYPE_USB_PARALLEL,		/* USB Parallel Path */
 	POWER_SUPPLY_TYPE_WIPOWER,		/* Wipower */
+	POWER_SUPPLY_TYPE_YL_BATTERY,	/* yulong add ,include  ADC battery and 3rd party fuelgauge type */
 };
 
 enum power_supply_notifier_events {

@@ -26,6 +26,9 @@
 #include <linux/uaccess.h>
 #include <linux/vmalloc.h>
 #include <asm/page.h>
+#ifdef CONFIG_YL_PSTORE
+#include <linux/pstore.h>
+#endif
 
 struct persistent_ram_buffer {
 	uint32_t    sig;
@@ -35,7 +38,17 @@ struct persistent_ram_buffer {
 };
 
 #define PERSISTENT_RAM_SIG (0x43474244) /* DBGC */
+/*< LAFITE-3550 liumaoxin 20160302 start>*/
+void *memcpy_pstore(void *dest, const void *src, size_t count)
+{
+    char *tmp = dest;
+    const char *s = src;
 
+    while (count--)
+        *tmp++ = *s++;
+    return dest;
+}
+/*< LAFITE-3550 liumaoxin 20160302 end>*/
 static inline size_t buffer_size(struct persistent_ram_zone *prz)
 {
 	return atomic_read(&prz->buffer->size);
@@ -264,7 +277,9 @@ static void notrace persistent_ram_update(struct persistent_ram_zone *prz,
 	const void *s, unsigned int start, unsigned int count)
 {
 	struct persistent_ram_buffer *buffer = prz->buffer;
-	memcpy_toio(buffer->data + start, s, count);
+	/*< LAFITE-3550 liumaoxin 20160302 start>*/
+	memcpy_pstore(buffer->data + start, s, count);
+	/*< LAFITE-3550 liumaoxin 20160302 end>*/
 	persistent_ram_update_ecc(prz, start, count);
 }
 
@@ -297,8 +312,13 @@ void persistent_ram_save_old(struct persistent_ram_zone *prz)
 	}
 
 	prz->old_log_size = size;
-	memcpy_fromio(prz->old_log, &buffer->data[start], size - start);
-	memcpy_fromio(prz->old_log + size - start, &buffer->data[0], start);
+#ifdef CONFIG_YL_PSTORE
+	memcpy_pstore(prz->old_log, &buffer->data[start], size - start);
+	memcpy_pstore(prz->old_log + size - start, &buffer->data[0], start);
+#else
+	memcpy(prz->old_log, &buffer->data[start], size - start);
+	memcpy(prz->old_log + size - start, &buffer->data[0], start);
+#endif
 }
 
 int notrace persistent_ram_write(struct persistent_ram_zone *prz,

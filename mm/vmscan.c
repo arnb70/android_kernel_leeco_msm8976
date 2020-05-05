@@ -837,7 +837,6 @@ static unsigned long shrink_page_list(struct list_head *page_list,
 
 		VM_BUG_ON(PageActive(page));
 		if (zone)
-			if (zone)
 			VM_BUG_ON(page_zone(page) != zone);
 
 		sc->nr_scanned++;
@@ -1202,7 +1201,7 @@ unsigned long reclaim_pages_from_list(struct list_head *page_list,
 
 	list_for_each_entry(page, page_list, lru)
 		ClearPageActive(page);
-		
+
 	nr_reclaimed = shrink_page_list(page_list, NULL, &sc,
 			TTU_UNMAP|TTU_IGNORE_ACCESS,
 			&dummy1, &dummy2, &dummy3, &dummy4, &dummy5, true);
