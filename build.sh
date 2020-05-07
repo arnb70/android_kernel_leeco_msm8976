@@ -37,7 +37,7 @@ export ARCH="arm64"
 export USE_CCACHE=1
 
 echo -e "$green***********************************************" 
-echo " Compiling Graphene Kernel "
+echo " Compiling PureCAF+ Kernel "
 echo -e "***********************************************"
 
 # Finally build it

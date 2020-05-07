@@ -257,7 +257,6 @@
 			< 550000000   8 >,  /* Super Turbo */
 			< 600000000   9 >,  /* Super Turbo */
 			< 621330000   9 >;  /* Super Turbo */
->>>>>>> c1b1ca75f81... OC 4x2016mhz/4x1536mhz/GPU-710mhz
 		#clock-cells = <1>;
 	};
 
