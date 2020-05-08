@@ -1308,6 +1308,28 @@ static struct clk_freq_tbl ftbl_gfx3d_clk_src[] = {
 	F( 710000000,    gpll2_gfx3d,  1.5,    0,     0),
         F( 753333333,          gpll3,  1.5,    0,     0),
 	F_END
+
+static struct clk_freq_tbl ftbl_gfx3d_clk_src_v1[] = {
+	F(  19200000,             xo,    1,    0,     0),
+	F(  50000000,          gpll0,   16,    0,     0),
+	F(  80000000,          gpll0,   10,    0,     0),
+	F( 100000000,          gpll0,    8,    0,     0),
+	F( 133333333,          gpll0,    6,    0,     0),
+	F( 160000000,          gpll0,    5,    0,     0),
+	F( 200000000,          gpll0,    4,    0,     0),
+	F( 228571429,          gpll0,  3.5,    0,     0),
+	F( 240000000,    gpll6_gfx3d,  4.5,    0,     0),
+	F( 266666667,          gpll0,    3,    0,     0),
+	F( 300000000,    gpll4_gfx3d,    4,    0,     0),
+	F( 366670000,          gpll3,    3,    0,     0),
+	F( 480000000,          gpll0,    2,    0,     0),
+	F( 550000000,    gpll6_gfx3d,  2.5,    0,     0),
+	F( 600000000,    gpll4_gfx3d,  2.5,    0,     0),
+	F( 623330000,          gpll3,    2,    0,     0),
+	F( 660000000,    gpll4_gfx3d,    2,    0,     0),
+	F( 710000000,    gpll2_gfx3d,  1.5,    0,     0),
+        F( 753333333,          gpll3,  1.5,    0,     0),
+	F_END
 };
 
 static struct rcg_clk gfx3d_clk_src = {
@@ -4023,7 +4045,7 @@ static int msm_gcc_gfx_probe(struct platform_device *pdev)
 
 	if (version) {
 		gfx3d_clk_src.freq_tbl = ftbl_gfx3d_clk_src_v1;
-		gcc_oxili_gfx3d_clk.c.fmax[VDD_DIG_HIGH] = 621330000;
+		gcc_oxili_gfx3d_clk.c.fmax[VDD_DIG_HIGH] = 753333333;
 	}
 
 	ret = of_msm_clock_register(pdev->dev.of_node, msm_clocks_gcc_gfx,
