@@ -1308,6 +1308,7 @@ static struct clk_freq_tbl ftbl_gfx3d_clk_src[] = {
 	F( 710000000,    gpll2_gfx3d,  1.5,    0,     0),
         F( 805000000,          gpll3,  1.5,    0,     0),
 	F_END
+};
 
 static struct clk_freq_tbl ftbl_gfx3d_clk_src_v1[] = {
 	F(  19200000,             xo,    1,    0,     0),
