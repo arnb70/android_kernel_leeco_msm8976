@@ -38,12 +38,6 @@ char tmp_panel_name[100];
 
 DEFINE_LED_TRIGGER(bl_led_trigger);
 
-bool display_on = true;
-bool is_display_on()
-{
-	return display_on;
-}
-
 #define CEIL(x, y)	(((x) + ((y)-1)) / (y))
 
 static u32 rc_buf_thresh[] = {0x0e, 0x1c, 0x2a, 0x38, 0x46, 0x54, 0x62,
@@ -736,8 +730,6 @@ static int mdss_dsi_panel_on(struct mdss_panel_data *pdata)
 		pr_err("%s: Invalid input data\n", __func__);
 		return -EINVAL;
 	}
-
-	display_on = true;
 
 	pinfo = &pdata->panel_info;
 	ctrl = container_of(pdata, struct mdss_dsi_ctrl_pdata,
