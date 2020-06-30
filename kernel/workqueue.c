@@ -3249,6 +3249,7 @@ static ssize_t wq_nice_show(struct device *dev, struct device_attribute *attr,
 static struct workqueue_attrs *wq_sysfs_prep_attrs(struct workqueue_struct *wq)
 {
 	struct workqueue_attrs *attrs;
+	const unsigned long allowed_cpus = 0xf;
 
 	attrs = alloc_workqueue_attrs(GFP_KERNEL);
 	if (!attrs)
