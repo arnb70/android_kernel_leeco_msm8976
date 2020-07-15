@@ -59,8 +59,6 @@
 #define PSCI_AFFINITY_LEVEL(lvl) ((lvl & 0x3) << 24)
 static remote_spinlock_t scm_handoff_lock;
 
-struct lpm_cluster *lpm_root_node;
-
 static bool lpm_prediction;
 module_param_named(lpm_prediction,
 	lpm_prediction, bool, S_IRUGO | S_IWUSR | S_IWGRP);
