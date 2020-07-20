@@ -32,7 +32,7 @@ rm -rf out/arch/arm64/boot/Image.gz-dtb
 # Export few variables
 export KBUILD_BUILD_USER="Arnab"
 export KBUILD_BUILD_HOST="aws"
-export CROSS_COMPILE=/home/ubuntu/gcc/aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=/home/ubuntu/arnb/kernel/gcc/gcc-linaro-6.4.1-2017.08-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 export ARCH="arm64"
 export USE_CCACHE=1
 
@@ -62,7 +62,7 @@ echo -e "***********************************************$default"
 cd ../
 rm -rf $Anykernel_DIR/Image.gz-dtb
 rm -rf out/arch/arm64/boot/Image
-rm -rf out/arch/arm64/boot/dts/qcom/msm8976-mtp-cool.dtb
+##rm -rf out/arch/arm64/boot/dts/qcom/msm8976-mtp-cool.dtb
 rm -rf out/arch/arm64/boot/Image.gz
 rm -rf out/arch/arm64/boot/Image.gz-dtb
 make O=out clean && make O=out mrproper
