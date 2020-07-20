@@ -15,4 +15,3 @@
 bool is_display_on(void);
 
 #endif
-
