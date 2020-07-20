@@ -1381,7 +1381,7 @@ static int diag_ioctl_lsm_deinit(void)
 	}
 	if (!(driver->data_ready[i] & DEINIT_TYPE)) {
 		driver->data_ready[i] |= DEINIT_TYPE;
-		atomic_inc(&driver->data_ready_notif[i]);
+//		atomic_inc(&driver->data_ready_notif[i]);
 	}
 	mutex_unlock(&driver->diagchar_mutex);
 	wake_up_interruptible(&driver->wait_q);
@@ -2576,7 +2576,6 @@ exit:
 									track);
 			pid_struct = find_get_pid(entry->tgid);
 			if (!pid_struct)
-<<<<<<< HEAD
 				continue;
 			task_s = get_pid_task(pid_struct, PIDTYPE_PID);
 			if (!task_s) {
@@ -2584,15 +2583,6 @@ exit:
 				"diag: valid task doesn't exist for pid = %d\n",
 				entry->tgid);
 				continue;
-=======
-				continue;
-			task_s = get_pid_task(pid_struct, PIDTYPE_PID);
-			if (!task_s) {
-				DIAG_LOG(DIAG_DEBUG_DCI,
-				"diag: valid task doesn't exist for pid = %d\n",
-				entry->tgid);
-				continue;
->>>>>>> 1cb928572c1... Merge tag 'LA.BR.1.3.7.c25-09100-8976.0' of https://source.codeaurora.org/quic/la/kernel/msm-3.10 into q-10.x-rebase
 			}
 			if (task_s == entry->client)
 				if (entry->client->tgid != current->tgid)

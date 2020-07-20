@@ -1,0 +1,2222 @@
+Script started on 2020-07-20 17:21:32+0000
+]0;ubuntu@ip-172-31-43-13: ~/arnb/kernel/c6[01;32mubuntu@ip-172-31-43-13[00m:[01;34m~/arnb/kernel/c6[00m$ ./build.sh 
+[01;32m***********************************************
+           Compiling Graphene Kernel                    
+***********************************************
+  HOSTCC  scripts/basic/fixdep
+  GEN     /home/ubuntu/arnb/kernel/c6/out/Makefile
+  HOSTCC  scripts/kconfig/conf.o
+  SHIPPED scripts/kconfig/zconf.tab.c
+  SHIPPED scripts/kconfig/zconf.lex.c
+  SHIPPED scripts/kconfig/zconf.hash.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+coolpad/drivers/input/fingerprint/Kconfig:4:warning: type of 'INPUT_FINGERPRINT' redefined from 'tristate' to 'boolean'
+lib/Kconfig:109:warning: choice value used outside its choice group
+lib/Kconfig:120:warning: choice value used outside its choice group
+lib/Kconfig:129:warning: choice value used outside its choice group
+lib/Kconfig:137:warning: choice value used outside its choice group
+arch/arm64/configs/lineage_c106_defconfig:3357:warning: override: reassigning to symbol EXTCON
+warning: (SND_SOC_APQ8084 && SND_SOC_MSM8X16 && SND_SOC_MSM8994) selects SND_SOC_CPE which has unmet direct dependencies (SOUND && !M68K && !UML && SND && SND_SOC && SND_SOC_WCD_CPE)
+warning: (ARCH_MSM) selects DEVFREQ_GOV_MSM_BW_HWMON which has unmet direct dependencies (PM_DEVFREQ && (ARCH_MSM_KRAIT || ARCH_MSM_BIMC_BWMON))
+warning: (SND_SOC_APQ8084 && SND_SOC_MSM8X16 && SND_SOC_MSM8994) selects SND_SOC_CPE which has unmet direct dependencies (SOUND && !M68K && !UML && SND && SND_SOC && SND_SOC_WCD_CPE)
+warning: (ARCH_MSM) selects DEVFREQ_GOV_MSM_BW_HWMON which has unmet direct dependencies (PM_DEVFREQ && (ARCH_MSM_KRAIT || ARCH_MSM_BIMC_BWMON))
+#
+# configuration written to .config
+#
+  GEN     /home/ubuntu/arnb/kernel/c6/out/Makefile
+scripts/kconfig/conf --silentoldconfig Kconfig
+coolpad/drivers/input/fingerprint/Kconfig:4:warning: type of 'INPUT_FINGERPRINT' redefined from 'tristate' to 'boolean'
+lib/Kconfig:109:warning: choice value used outside its choice group
+lib/Kconfig:120:warning: choice value used outside its choice group
+lib/Kconfig:129:warning: choice value used outside its choice group
+lib/Kconfig:137:warning: choice value used outside its choice group
+warning: (SND_SOC_APQ8084 && SND_SOC_MSM8X16 && SND_SOC_MSM8994) selects SND_SOC_CPE which has unmet direct dependencies (SOUND && !M68K && !UML && SND && SND_SOC && SND_SOC_WCD_CPE)
+warning: (ARCH_MSM) selects DEVFREQ_GOV_MSM_BW_HWMON which has unmet direct dependencies (PM_DEVFREQ && (ARCH_MSM_KRAIT || ARCH_MSM_BIMC_BWMON))
+warning: (SND_SOC_APQ8084 && SND_SOC_MSM8X16 && SND_SOC_MSM8994) selects SND_SOC_CPE which has unmet direct dependencies (SOUND && !M68K && !UML && SND && SND_SOC && SND_SOC_WCD_CPE)
+warning: (ARCH_MSM) selects DEVFREQ_GOV_MSM_BW_HWMON which has unmet direct dependencies (PM_DEVFREQ && (ARCH_MSM_KRAIT || ARCH_MSM_BIMC_BWMON))
+  GEN     /home/ubuntu/arnb/kernel/c6/out/Makefile
+  WRAP    arch/arm64/include/generated/asm/bugs.h
+  WRAP    arch/arm64/include/generated/asm/checksum.h
+  WRAP    arch/arm64/include/generated/asm/clkdev.h
+  WRAP    arch/arm64/include/generated/asm/cputime.h
+  WRAP    arch/arm64/include/generated/asm/current.h
+  WRAP    arch/arm64/include/generated/asm/delay.h
+  WRAP    arch/arm64/include/generated/asm/div64.h
+  WRAP    arch/arm64/include/generated/asm/dma.h
+  WRAP    arch/arm64/include/generated/asm/emergency-restart.h
+  WRAP    arch/arm64/include/generated/asm/early_ioremap.h
+  WRAP    arch/arm64/include/generated/asm/errno.h
+  WRAP    arch/arm64/include/generated/asm/ftrace.h
+  WRAP    arch/arm64/include/generated/asm/hw_irq.h
+  WRAP    arch/arm64/include/generated/asm/ioctl.h
+  WRAP    arch/arm64/include/generated/asm/ioctls.h
+  WRAP    arch/arm64/include/generated/asm/ipcbuf.h
+  WRAP    arch/arm64/include/generated/asm/irq_regs.h
+  WRAP    arch/arm64/include/generated/asm/kdebug.h
+  WRAP    arch/arm64/include/generated/asm/kmap_types.h
+  WRAP    arch/arm64/include/generated/asm/kvm_para.h
+  WRAP    arch/arm64/include/generated/asm/local.h
+  CHK     include/generated/uapi/linux/version.h
+  WRAP    arch/arm64/include/generated/asm/local64.h
+  WRAP    arch/arm64/include/generated/asm/mcs_spinlock.h
+  WRAP    arch/arm64/include/generated/asm/mman.h
+  WRAP    arch/arm64/include/generated/asm/msgbuf.h
+  UPD     include/generated/uapi/linux/version.h
+  WRAP    arch/arm64/include/generated/asm/mutex.h
+  WRAP    arch/arm64/include/generated/asm/pci.h
+  WRAP    arch/arm64/include/generated/asm/poll.h
+  WRAP    arch/arm64/include/generated/asm/resource.h
+  WRAP    arch/arm64/include/generated/asm/rwsem.h
+  WRAP    arch/arm64/include/generated/asm/scatterlist.h
+  WRAP    arch/arm64/include/generated/asm/sections.h
+  WRAP    arch/arm64/include/generated/asm/segment.h
+  WRAP    arch/arm64/include/generated/asm/sembuf.h
+  WRAP    arch/arm64/include/generated/asm/serial.h
+  WRAP    arch/arm64/include/generated/asm/shmbuf.h
+  WRAP    arch/arm64/include/generated/asm/simd.h
+  WRAP    arch/arm64/include/generated/asm/sizes.h
+  WRAP    arch/arm64/include/generated/asm/socket.h
+  WRAP    arch/arm64/include/generated/asm/sockios.h
+  WRAP    arch/arm64/include/generated/asm/swab.h
+  WRAP    arch/arm64/include/generated/asm/switch_to.h
+  WRAP    arch/arm64/include/generated/asm/termbits.h
+  WRAP    arch/arm64/include/generated/asm/termios.h
+  WRAP    arch/arm64/include/generated/asm/topology.h
+  WRAP    arch/arm64/include/generated/asm/trace_clock.h
+  WRAP    arch/arm64/include/generated/asm/types.h
+  WRAP    arch/arm64/include/generated/asm/unaligned.h
+  WRAP    arch/arm64/include/generated/asm/user.h
+  WRAP    arch/arm64/include/generated/asm/vga.h
+  WRAP    arch/arm64/include/generated/asm/xor.h
+  WRAP    arch/arm64/include/generated/uapi/asm/kvm_para.h
+  HOSTCC  scripts/kallsyms
+  HOSTCC  scripts/bin2c
+  CC      scripts/mod/empty.o
+  HOSTCC  scripts/dtc/checks.o
+  Using /home/ubuntu/arnb/kernel/c6 as source for kernel
+  HOSTCC  scripts/dtc/data.o
+  SHIPPED scripts/dtc/dtc-lexer.lex.c
+  HOSTCC  scripts/mod/mk_elfconfig
+  HOSTCC  scripts/selinux/genheaders/genheaders
+  SHIPPED scripts/dtc/dtc-parser.tab.h
+  SHIPPED scripts/dtc/dtc-parser.tab.c
+  HOSTCC  scripts/dtc/dtc.o
+  HOSTCC  scripts/dtc/flattree.o
+  CHK     include/generated/utsrelease.h
+  UPD     include/generated/utsrelease.h
+  HOSTCC  scripts/dtc/fstree.o
+  HOSTCC  scripts/dtc/livetree.o
+  HOSTCC  scripts/recordmcount
+  HOSTCC  scripts/dtc/srcpos.o
+  HOSTCC  scripts/dtc/treesource.o
+  HOSTCC  scripts/dtc/util.o
+  CC      scripts/mod/devicetable-offsets.s
+  HOSTCC  scripts/dtc/dtc-lexer.lex.o
+  MKELF   scripts/mod/elfconfig.h
+  GEN     scripts/mod/devicetable-offsets.h
+  HOSTCC  scripts/mod/modpost.o
+  HOSTCC  scripts/dtc/dtc-parser.tab.o
+  CC      kernel/bounds.s
+  GEN     include/generated/bounds.h
+  CC      arch/arm64/kernel/asm-offsets.s
+  HOSTLD  scripts/dtc/dtc
+  HOSTCC  scripts/mod/sumversion.o
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTCC  scripts/selinux/mdp/mdp
+  HOSTCC  scripts/sortextable
+  HOSTLD  scripts/mod/modpost
+[01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.c:68:1:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksucceed_file[m[K’ defined but not used [[01;35m[K-Wunused-function[m[K]
+ [01;35m[Ksucceed_file[m[K(void)
+ [01;35m[K^~~~~~~~~~~~[m[K
+  HOSTCC  scripts/asn1_compiler
+  GEN     include/generated/asm-offsets.h
+  CALL    /home/ubuntu/arnb/kernel/c6/scripts/checksyscalls.sh
+In file included from [01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.c:166:0[m[K:
+[01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.h:158:3:[m[K [01;35m[Kwarning: [m[K‘[01m[Krelocs_size[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+   [01;35m[Kmemset(relocs, 0, relocs_size)[m[K;
+   [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.h:104:6:[m[K [01;36m[Knote: [m[K‘[01m[Krelocs_size[m[K’ was declared here
+  int [01;36m[Krelocs_size[m[K;
+      [01;36m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.c:164:0[m[K:
+[01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.h:158:3:[m[K [01;35m[Kwarning: [m[K‘[01m[Krelocs_size[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+   [01;35m[Kmemset(relocs, 0, relocs_size)[m[K;
+   [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ubuntu/arnb/kernel/c6/scripts/sortextable.h:104:6:[m[K [01;36m[Knote: [m[K‘[01m[Krelocs_size[m[K’ was declared here
+  int [01;36m[Krelocs_size[m[K;
+      [01;36m[K^~~~~~~~~~~[m[K
+make[2]: Nothing to be done for 'dtbs'.
+  DTC     arch/arm64/boot/dts/qcom/../msm8976-mtp-cool.dtb
+[01m[K<stdin>:1226:2:[m[K [01;35m[Kwarning: [m[K#warning syscall sched_setattr not implemented [[01;35m[K-Wcpp[m[K]
+[01m[K<stdin>:1229:2:[m[K [01;35m[Kwarning: [m[K#warning syscall sched_getattr not implemented [[01;35m[K-Wcpp[m[K]
+  CC      init/main.o
+  CHK     include/generated/compile.h
+  CC      init/do_mounts.o
+  CC      init/do_mounts_rd.o
+  UPD     include/generated/compile.h
+  HOSTCC  usr/gen_init_cpio
+  CC      arch/arm64/kernel/swp_emulate.o
+  CC      arch/arm64/kernel/pcibios.o
+  CC      init/do_mounts_initrd.o
+  CC      arch/arm64/mm/dma-mapping.o
+  LDS     arch/arm64/kernel/vdso/vdso.lds
+  VDSOA arch/arm64/kernel/vdso/gettimeofday.o
+  VDSOA arch/arm64/kernel/vdso/note.o
+  CC      arch/arm64/mm/extable.o
+  VDSOA arch/arm64/kernel/vdso/sigreturn.o
+  CC      arch/arm64/mm/fault.o
+  VDSOL arch/arm64/kernel/vdso/vdso.so.dbg
+  OBJCOPY arch/arm64/kernel/vdso/vdso.so
+  VDSOSYM arch/arm64/kernel/vdso/vdso-offsets.h
+  GEN     usr/initramfs_data.cpio
+  AS      arch/arm64/kernel/vdso/vdso.o
+  CC      arch/arm64/crypto/aes-glue-ce.o
+  CC      arch/arm64/mm/init.o
+In file included from /home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/aes-glue.c:17:0:
+/home/ubuntu/arnb/kernel/c6/include/linux/cpufeature.h:47:33: warning: ‘cpu_feature_match_AES’ defined but not used [-Wunused-const-variable=]
+ static struct cpu_feature const cpu_feature_match_ ## x[] = \
+                                 ^
+/home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/aes-glue.c:448:1: note: in expansion of macro ‘module_cpu_feature_match’
+ module_cpu_feature_match(AES, aes_init);
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+  AS      usr/initramfs_data.o
+  AS      arch/arm64/crypto/aes-ce.o
+  LD      arch/arm64/kernel/vdso/built-in.o
+  AS      arch/arm64/mm/cache.o
+  CC      arch/arm64/crypto/aes-ce-ccm-glue.o
+  CC      init/do_mounts_dm.o
+  AS      arch/arm64/kernel/head.o
+  CC      arch/arm64/mm/copypage.o
+/home/ubuntu/arnb/kernel/c6/kernel/Makefile:144: *** No X.509 certificates found ***
+  LDS     arch/arm64/kernel/vmlinux.lds
+  CC      arch/arm64/mm/flush.o
+  LD      usr/built-in.o
+  AS      arch/arm64/crypto/aes-ce-ccm-core.o
+  CC      kernel/fork.o
+  CC      init/noinitramfs.o
+  CC      init/initramfs.o
+  CC      arch/arm64/crypto/aes-glue-neon.o
+  CC      arch/arm64/kernel/cputable.o
+  CC      arch/arm64/mm/ioremap.o
+  CC      arch/arm64/kernel/debug-monitors.o
+  AS      arch/arm64/crypto/aes-neon.o
+  CC      init/calibrate.o
+  AS      arch/arm64/kernel/entry.o
+  CC      arch/arm64/crypto/ghash-ce-glue.o
+  CC      arch/arm64/mm/iomap.o
+  CC      kernel/exec_domain.o
+  CC      arch/arm64/mm/mmap.o
+In file included from /home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/ghash-ce-glue.c:14:0:
+/home/ubuntu/arnb/kernel/c6/include/linux/cpufeature.h:47:33: warning: ‘cpu_feature_match_PMULL’ defined but not used [-Wunused-const-variable=]
+ static struct cpu_feature const cpu_feature_match_ ## x[] = \
+                                 ^
+/home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/ghash-ce-glue.c:155:1: note: in expansion of macro ‘module_cpu_feature_match’
+ module_cpu_feature_match(PMULL, ghash_ce_mod_init);
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+  CC      arch/arm64/kernel/irq.o
+  CC      init/init_task.o
+  AS      arch/arm64/crypto/ghash-ce-core.o
+  CC      kernel/panic.o
+  CC      arch/arm64/crypto/sha1-ce-glue.o
+  CC      kernel/printk.o
+  CC      arch/arm64/mm/pgd.o
+  CC      arch/arm64/kernel/fpsimd.o
+In file included from /home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/sha1-ce-glue.c:15:0:
+/home/ubuntu/arnb/kernel/c6/include/linux/cpufeature.h:47:33: warning: ‘cpu_feature_match_SHA1’ defined but not used [-Wunused-const-variable=]
+ static struct cpu_feature const cpu_feature_match_ ## x[] = \
+                                 ^
+/home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/sha1-ce-glue.c:173:1: note: in expansion of macro ‘module_cpu_feature_match’
+ module_cpu_feature_match(SHA1, sha1_ce_mod_init);
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+  CC      init/version.o
+  AS      arch/arm64/kernel/entry-fpsimd.o
+  CC      kernel/cpu.o
+  CC      kernel/exit.o
+  CC      arch/arm64/mm/mmu.o
+  AS      arch/arm64/crypto/sha1-ce-core.o
+  CC      arch/arm64/kernel/process.o
+  CC      arch/arm64/crypto/sha2-ce-glue.o
+  CC      arch/arm64/kernel/ptrace.o
+In file included from /home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/sha2-ce-glue.c:15:0:
+/home/ubuntu/arnb/kernel/c6/include/linux/cpufeature.h:47:33: warning: ‘cpu_feature_match_SHA2’ defined but not used [-Wunused-const-variable=]
+ static struct cpu_feature const cpu_feature_match_ ## x[] = \
+                                 ^
+/home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/sha2-ce-glue.c:254:1: note: in expansion of macro ‘module_cpu_feature_match’
+ module_cpu_feature_match(SHA2, sha2_ce_mod_init);
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+  CC      arch/arm64/mm/context.o
+  CC      kernel/itimer.o
+  AS      arch/arm64/mm/proc.o
+  AS      arch/arm64/crypto/sha2-ce-core.o
+  CC      arch/arm64/crypto/aes-ce-cipher.o
+  CC      arch/arm64/kernel/setup.o
+  CC      arch/arm64/mm/pageattr.o
+In file included from /home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/aes-ce-cipher.c:13:0:
+/home/ubuntu/arnb/kernel/c6/include/linux/cpufeature.h:47:33: warning: ‘cpu_feature_match_AES’ defined but not used [-Wunused-const-variable=]
+ static struct cpu_feature const cpu_feature_match_ ## x[] = \
+                                 ^
+/home/ubuntu/arnb/kernel/c6/arch/arm64/crypto/aes-ce-cipher.c:264:1: note: in expansion of macro ‘module_cpu_feature_match’
+ module_cpu_feature_match(AES, aes_mod_init);
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+  HZFILE  kernel/hz.bc
+  CC      arch/arm64/kernel/signal.o
+  CC      kernel/softirq.o
+  LD      arch/arm64/mm/built-in.o
+  LD      arch/arm64/crypto/sha1-ce.o
+  LD      arch/arm64/crypto/sha2-ce.o
+  CC      kernel/resource.o
+  LD      arch/arm64/crypto/ghash-ce.o
+  CC      arch/arm64/kernel/sys.o
+  LD      arch/arm64/crypto/aes-ce-ccm.o
+  LD      arch/arm64/crypto/aes-ce-blk.o
+  LD      arch/arm64/crypto/aes-neon-blk.o
+  CC      kernel/sysctl.o
+  LD      arch/arm64/crypto/built-in.o
+  CC      arch/arm64/kernel/stacktrace.o
+  CC      kernel/sysctl_binary.o
+  CC      kernel/capability.o
+  CC      arch/arm64/kernel/time.o
+  CC      arch/arm64/kernel/traps.o
+  CC      mm/filemap.o
+  CC      kernel/ptrace.o
+  CC      kernel/timer.o
+  CC      mm/mempool.o
+  CC      arch/arm64/kernel/io.o
+  CC      kernel/user.o
+  CC      arch/arm64/kernel/vdso.o
+  CC      mm/oom_kill.o
+  CC      kernel/signal.o
+  CC      fs/open.o
+  AS      arch/arm64/kernel/hyp-stub.o
+  CC      arch/arm64/kernel/psci.o
+  CC      mm/fadvise.o
+  LD      ipc/built-in.o
+  CC      kernel/sys.o
+  CC      fs/read_write.o
+  CC      kernel/kmod.o
+  CC      arch/arm64/kernel/cpu_ops.o
+  CC      mm/maccess.o
+  CC      arch/arm64/kernel/insn.o
+  CC      fs/file_table.o
+  CC      arch/arm64/kernel/opcodes.o
+  CC      kernel/workqueue.o
+  LD      init/mounts.o
+  CC      mm/page_alloc.o
+  LD      init/built-in.o
+/home/ubuntu/arnb/kernel/c6/kernel/workqueue.c: In function ‘wq_sysfs_prep_attrs’:
+/home/ubuntu/arnb/kernel/c6/kernel/workqueue.c:3252:22: warning: unused variable ‘allowed_cpus’ [-Wunused-variable]
+  const unsigned long allowed_cpus = 0xf;
+                      ^~~~~~~~~~~~
+  CC      kernel/pid.o
+  CC      arch/arm64/kernel/return_address.o
+  CC      kernel/task_work.o
+  CC      fs/super.o
+  CC      fs/char_dev.o
+  AS      arch/arm64/kernel/psci-call.o
+  CC      fs/stat.o
+  CC      mm/page-writeback.o
+  CC      kernel/extable.o
+  AS      arch/arm64/kernel/sys32.o
+  AS      arch/arm64/kernel/kuser32.o
+  CC      arch/arm64/kernel/signal32.o
+  CC      fs/exec.o
+  CC      kernel/params.o
+  CC      fs/pipe.o
+  CC      kernel/posix-timers.o
+  CC      mm/readahead.o
+  CC      arch/arm64/kernel/sys_compat.o
+  CC      arch/arm64/kernel/ftrace.o
+  CC      kernel/kthread.o
+  CC      fs/namei.o
+  AS      arch/arm64/kernel/entry-ftrace.o
+  CC      mm/swap.o
+  CC      fs/fcntl.o
+  CC      arch/arm64/kernel/smp.o
+  CC      kernel/sys_ni.o
+  CC      kernel/posix-cpu-timers.o
+  CC      mm/truncate.o
+  CC      mm/vmscan.o
+  CC      fs/ioctl.o
+  CC      arch/arm64/kernel/smp_spin_table.o
+  CC      kernel/hrtimer.o
+  CC      arch/arm64/kernel/topology.o
+  CC      mm/shmem.o
+  CC      fs/readdir.o
+  CC      kernel/nsproxy.o
+  CC      arch/arm64/kernel/perf_regs.o
+  CC      mm/util.o
+  CC      security/keys/gc.o
+  CC      fs/select.o
+  CC      kernel/notifier.o
+  CC      arch/arm64/kernel/perf_event.o
+  CC      mm/mmzone.o
+  CC      security/keys/key.o
+  CC      fs/dcache.o
+  CC      mm/vmstat.o
+  CC      kernel/ksysfs.o
+  CC      arch/arm64/kernel/perf_debug.o
+  CC      security/keys/keyring.o
+  CC      fs/inode.o
+  CC      mm/backing-dev.o
+  CC      kernel/cred.o
+  CC      arch/arm64/kernel/perf_trace_counters.o
+  CC      security/keys/keyctl.o
+  CC      fs/attr.o
+  CC      mm/mm_init.o
+  CC      kernel/async.o
+  CC      crypto/api.o
+  CC      arch/arm64/kernel/perf_trace_user.o
+  CC      security/keys/permission.o
+  CC      fs/bad_inode.o
+  CC      mm/mmu_context.o
+  CC      kernel/range.o
+  CC      crypto/cipher.o
+  CC      arch/arm64/kernel/early_printk.o
+  CC      kernel/groups.o
+  CC      mm/percpu.o
+  CC      security/keys/process_keys.o
+  CC      fs/file.o
+  AS      arch/arm64/kernel/sleep.o
+  CC      mm/slab_common.o
+  CC      crypto/compress.o
+  CC      kernel/smpboot.o
+  CC      arch/arm64/kernel/suspend.o
+  CC      security/keys/request_key.o
+  CC      fs/filesystems.o
+  CC      mm/compaction.o
+  CC      crypto/memneq.o
+  LD      arch/arm64/kernel/built-in.o
+  CC      security/keys/request_key_auth.o
+  CC      kernel/cpu/idle.o
+  CC      fs/namespace.o
+  CC      mm/balloon_compaction.o
+  CC      crypto/algapi.o
+  CC      security/keys/user_defined.o
+  LD      kernel/cpu/built-in.o
+  CC      fs/seq_file.o
+  CC      mm/interval_tree.o
+  CC      security/keys/proc.o
+  CC      crypto/scatterwalk.o
+  GEN     security/selinux/flask.h security/selinux/av_permissions.h
+  CC      fs/xattr.o
+  CC      security/selinux/avc.o
+  CC      kernel/events/core.o
+  CC      mm/fremap.o
+  CC      security/keys/sysctl.o
+  CC      crypto/proc.o
+  CC      fs/libfs.o
+  CC      kernel/events/ring_buffer.o
+  LD      security/keys/built-in.o
+  CC      mm/highmem.o
+  CC      mm/madvise.o
+  CC      fs/fs-writeback.o
+  CC      crypto/ablkcipher.o
+  CC      kernel/events/callchain.o
+  CC      crypto/blkcipher.o
+  CC      mm/memory.o
+  CC      fs/pnode.o
+  LD      kernel/events/built-in.o
+  CC      fs/splice.o
+  CC      crypto/ahash.o
+  CC      mm/mincore.o
+  CC      kernel/irq/irqdesc.o
+  CC      fs/sync.o
+  CC      crypto/shash.o
+  CC      mm/mlock.o
+  CC      kernel/irq/handle.o
+  CC      fs/utimes.o
+  CC      crypto/algboss.o
+  CC      kernel/irq/manage.o
+  CC      mm/mmap.o
+  CC      block/elevator.o
+  CC      fs/stack.o
+  CC      kernel/irq/spurious.o
+  CC      crypto/testmgr.o
+  CC      mm/mprotect.o
+  CC      block/blk-core.o
+  CC      fs/fs_struct.o
+  CC      kernel/irq/resend.o
+  CC      crypto/crypto_wq.o
+  CC      kernel/irq/chip.o
+  CC      block/blk-tag.o
+  CC      mm/mremap.o
+  CC      fs/statfs.o
+  CC      security/selinux/hooks.o
+  LD      crypto/crypto_algapi.o
+  CC      crypto/aead.o
+  CC      kernel/irq/dummychip.o
+  CC      mm/msync.o
+  CC      fs/buffer.o
+  CC      block/blk-sysfs.o
+  CC      kernel/irq/devres.o
+  LD      crypto/crypto_blkcipher.o
+  CC      mm/rmap.o
+  CC      block/blk-flush.o
+  CC      crypto/chainiv.o
+  CC      fs/bio.o
+  CC      kernel/irq/autoprobe.o
+  CC      mm/vmalloc.o
+  CC      crypto/eseqiv.o
+  CC      fs/block_dev.o
+  CC      block/blk-settings.o
+  CC      kernel/irq/irqdomain.o
+  CC      mm/pagewalk.o
+  CC      kernel/irq/proc.o
+  CC      block/blk-ioc.o
+  CC      crypto/seqiv.o
+  CC      fs/direct-io.o
+  CC      mm/pgtable-generic.o
+  LD      crypto/crypto_hash.o
+  CC      kernel/irq/pm.o
+  CC      fs/mpage.o
+  CC      block/blk-map.o
+  CC      crypto/pcompress.o
+  CC      mm/process_vm_access.o
+  LD      kernel/irq/built-in.o
+  CC      fs/ioprio.o
+  CC      block/blk-exec.o
+  LD      crypto/cryptomgr.o
+  CC      crypto/hmac.o
+  CC      mm/showmem.o
+  CC      kernel/locking/mutex.o
+  CC      fs/proc_namespace.o
+  CC      block/blk-merge.o
+  CC      mm/vmpressure.o
+  CC      crypto/xcbc.o
+  CC      kernel/locking/semaphore.o
+  CC      block/blk-softirq.o
+  CC      mm/init-mm.o
+  CC      crypto/crypto_null.o
+  CC      kernel/locking/rwsem.o
+  CC      mm/nobootmem.o
+  CC      fs/configfs/inode.o
+  CC      block/blk-timeout.o
+  CC      crypto/md4.o
+  CC      kernel/locking/lglock.o
+  CC      mm/memblock.o
+  CC      fs/configfs/file.o
+  CC      security/selinux/selinuxfs.o
+  CC      block/blk-iopoll.o
+  CC      crypto/md5.o
+  CC      kernel/locking/spinlock.o
+  CC      mm/bounce.o
+  CC      fs/configfs/dir.o
+  CC      crypto/sha1_generic.o
+  CC      block/blk-lib.o
+  CC      kernel/locking/rtmutex.o
+  CC      security/selinux/netlink.o
+  CC      fs/configfs/symlink.o
+  CC      mm/page_io.o
+  CC      kernel/locking/rwsem-xadd.o
+  CC      crypto/sha256_generic.o
+  CC      block/ioctl.o
+  CC      security/selinux/nlmsgtab.o
+  CC      fs/configfs/mount.o
+  LD      kernel/locking/built-in.o
+  CC      mm/swap_state.o
+  CC      crypto/sha512_generic.o
+  CC      block/genhd.o
+  CC      fs/configfs/item.o
+  CC      security/selinux/netif.o
+  CC      kernel/power/qos.o
+  CC      crypto/gf128mul.o
+  CC      block/scsi_ioctl.o
+  CC      mm/swapfile.o
+  LD      fs/configfs/configfs.o
+  LD      fs/configfs/built-in.o
+  CC      security/selinux/netnode.o
+  CC      kernel/power/main.o
+  CC      crypto/ecb.o
+  CC      block/partition-generic.o
+  CC      fs/debugfs/inode.o
+  CC      mm/dmapool.o
+  CC      security/selinux/netport.o
+  CC      kernel/power/process.o
+  CC      crypto/cbc.o
+  CC      fs/debugfs/file.o
+  CC      mm/sparse.o
+  CC      block/partitions/check.o
+  CC      kernel/power/suspend.o
+  CC      security/selinux/exports.o
+  CC      crypto/xts.o
+  LD      fs/debugfs/debugfs.o
+  CC      mm/sparse-vmemmap.o
+  LD      fs/debugfs/built-in.o
+  CC      security/selinux/ss/ebitmap.o
+  CC      block/partitions/msdos.o
+  CC      mm/slub.o
+  CC      fs/devpts/inode.o
+  CC      kernel/power/autosleep.o
+  CC      crypto/ctr.o
+  CC      security/selinux/ss/hashtab.o
+  CC      block/partitions/efi.o
+  CC      mm/migrate.o
+  LD      fs/devpts/devpts.o
+  CC      crypto/cryptd.o
+  CC      kernel/power/wakelock.o
+  LD      fs/devpts/built-in.o
+  CC      security/selinux/ss/symtab.o
+  LD      block/partitions/built-in.o
+  CC      block/bsg.o
+  CC      security/selinux/ss/sidtab.o
+  CC      mm/page_isolation.o
+  CC      kernel/power/suspend_time.o
+  CC      crypto/des_generic.o
+  LD      fs/exofs/built-in.o
+  CC      block/noop-iosched.o
+  CC      mm/early_ioremap.o
+  CC      crypto/twofish_generic.o
+  CC      security/selinux/ss/avtab.o
+  CC      kernel/power/poweroff.o
+  CC      kernel/power/wakeup_reason.o
+  CC      block/deadline-iosched.o
+  CC      mm/process_reclaim.o
+  CC      fs/ext2/balloc.o
+  CC      crypto/twofish_common.o
+  CC      security/selinux/ss/policydb.o
+  CC      block/row-iosched.o
+  CC      crypto/aes_generic.o
+  CC      mm/zsmalloc.o
+  LD      kernel/power/built-in.o
+  CC      fs/ext2/dir.o
+  CC      security/selinux/ss/services.o
+  CC      crypto/arc4.o
+  CC      kernel/rcu/update.o
+  CC      block/cfq-iosched.o
+  LD      mm/built-in.o
+  CC      fs/ext2/file.o
+  CC      kernel/rcu/srcu.o
+  CC      crypto/deflate.o
+  CC      fs/ext2/ialloc.o
+  CC      security/selinux/ss/conditional.o
+  CC      fs/ext2/inode.o
+  CC      block/zen-iosched.o
+  CC      kernel/rcu/tree.o
+/home/ubuntu/arnb/kernel/c6/block/zen-iosched.c: In function ‘zen_init_queue’:
+/home/ubuntu/arnb/kernel/c6/block/zen-iosched.c:167:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+     if (!eq)
+     ^~
+/home/ubuntu/arnb/kernel/c6/block/zen-iosched.c:170:2: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘if’
+  zdata = kmalloc_node(sizeof(*zdata), GFP_KERNEL, q->node);
+  ^~~~~
+  CC      crypto/crc32c.o
+  CC      fs/ext2/ioctl.o
+  CC      block/test-iosched.o
+  CC      security/selinux/ss/mls.o
+  CC      fs/ext2/namei.o
+  CC      block/compat_ioctl.o
+  LD      kernel/rcu/built-in.o
+  CC      crypto/crc32.o
+  CC      fs/ext2/super.o
+  CC      security/selinux/ss/status.o
+  CC      kernel/sched/core.o
+  CC      crypto/authenc.o
+  CC      kernel/time/timekeeping.o
+  LD      block/built-in.o
+  CC      fs/ext2/symlink.o
+  CC      kernel/time/ntp.o
+  LD      security/selinux/selinux.o
+  CC      crypto/authencesn.o
+  CC      fs/ext2/xattr.o
+  CC      kernel/sched/clock.o
+  CC      fs/ext2/xattr_user.o
+  LD      security/selinux/built-in.o
+  CC      security/commoncap.o
+  CC      kernel/time/clocksource.o
+  CC      kernel/sched/cputime.o
+  CC      kernel/time/jiffies.o
+  CC      fs/ext2/xattr_trusted.o
+  CC      crypto/rng.o
+  CC      security/min_addr.o
+  CC      crypto/krng.o
+  CC      kernel/time/timer_list.o
+  CC      kernel/sched/idle_task.o
+  LD      fs/ext2/ext2.o
+  CC      kernel/sched/fair.o
+  LD      fs/ext2/built-in.o
+  CC      security/security.o
+/home/ubuntu/arnb/kernel/c6/kernel/sched/fair.c: In function ‘idle_balance’:
+/home/ubuntu/arnb/kernel/c6/kernel/sched/fair.c:7898:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   if (time_after(next_balance, sd->last_balance + interval))
+   ^~
+/home/ubuntu/arnb/kernel/c6/kernel/sched/fair.c:7904:5: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘if’
+     if (pulled_task || this_rq->nr_running > 0) {
+     ^~
+  CC      kernel/time/timeconv.o
+  CC      crypto/ansi_cprng.o
+  CC      kernel/time/posix-clock.o
+  CC      kernel/sched/rt.o
+  CC      kernel/sched/stop_task.o
+  CC      security/capability.o
+  CC      fs/ext3/balloc.o
+  CC      kernel/time/alarmtimer.o
+  CC      fs/ext3/bitmap.o
+  CC      kernel/sched/sched_avg.o
+  LD      security/built-in.o
+  CC      kernel/sched/wait.o
+  CC      crypto/asymmetric_keys/asymmetric_type.o
+  CC      kernel/time/clockevents.o
+  CC      fs/ext3/dir.o
+  CC      fs/ext3/file.o
+  CC      fs/ext3/fsync.o
+  CC      kernel/sched/deadline.o
+  CC      crypto/asymmetric_keys/signature.o
+  CC      kernel/time/tick-common.o
+  CC      kernel/sched/cpupri.o
+  CC      kernel/time/tick-broadcast.o
+  ASN.1   crypto/asymmetric_keys/x509-asn1.c
+Extracted 200 tokens
+Extracted 14 types
+Extracted 11 actions
+Pass 1
+Pass 2
+  ASN.1   crypto/asymmetric_keys/x509_rsakey-asn1.c
+  CC      kernel/sched/cpudeadline.o
+  CC      kernel/time/tick-broadcast-hrtimer.o
+Extracted 16 tokens
+Extracted 1 types
+Extracted 1 actions
+Pass 1
+Pass 2
+  CC      fs/ext3/ialloc.o
+  CC      crypto/asymmetric_keys/x509_public_key.o
+  CC      kernel/sched/stats.o
+  CC      kernel/sched/cpuacct.o
+  CC      kernel/time/sched_clock.o
+  CC      fs/ext3/inode.o
+  CC      crypto/asymmetric_keys/public_key.o
+  CC      kernel/time/tick-oneshot.o
+  CC      kernel/time/tick-sched.o
+  LD      kernel/sched/built-in.o
+  CC      fs/ext3/ioctl.o
+  CC      kernel/time/timer_stats.o
+  CC      fs/ext3/namei.o
+  CC      crypto/asymmetric_keys/rsa.o
+  CC      crypto/ablk_helper.o
+  CC      kernel/freezer.o
+  LD      kernel/time/built-in.o
+  CC      kernel/trace/trace_clock.o
+  CC      kernel/trace/ftrace.o
+  CC      fs/ext3/super.o
+  CC      fs/ext3/symlink.o
+  CC      crypto/asymmetric_keys/x509-asn1.o
+  CC      kernel/trace/ring_buffer.o
+  CC      crypto/asymmetric_keys/x509_rsakey-asn1.o
+  CC      kernel/trace/trace.o
+  LD      crypto/crypto.o
+  CC      kernel/trace/trace_output.o
+  CC      crypto/asymmetric_keys/x509_cert_parser.o
+  CC      fs/ext3/hash.o
+/home/ubuntu/arnb/kernel/c6/kernel/trace/trace_output.c: In function ‘trace_graph_ret_raw’:
+/home/ubuntu/arnb/kernel/c6/kernel/trace/trace_output.c:1157:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (!trace_seq_printf(&iter->seq, "%lx %lld %lld %ld %d\n",
+  ^~
+/home/ubuntu/arnb/kernel/c6/kernel/trace/trace_output.c:1163:3: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the ‘if’
+   return TRACE_TYPE_PARTIAL_LINE;
+   ^~~~~~
+  CC      kernel/trace/trace_stat.o
+  LD      crypto/asymmetric_keys/asymmetric_keys.o
+  LD      crypto/asymmetric_keys/x509_key_parser.o
+  CC      fs/ext3/resize.o
+  LD      crypto/asymmetric_keys/built-in.o
+  LD      crypto/built-in.o
+  CC      kernel/trace/trace_printk.o
+  CC      fs/fat/cache.o
+  CC      fs/f2fs/dir.o
+  CC      fs/ext3/ext3_jbd.o
+  CC      fs/f2fs/file.o
+  CC      fs/ext4/balloc.o
+  CC      fs/fat/dir.o
+  CC      kernel/trace/trace_sched_switch.o
+  CC      fs/fat/fatent.o
+  CC      fs/ext3/xattr.o
+  CC      fs/f2fs/inode.o
+  CC      fs/ext4/bitmap.o
+  CC      fs/f2fs/namei.o
+  CC      kernel/trace/trace_functions.o
+  CC      fs/ext3/xattr_user.o
+  CC      fs/fat/file.o
+  CC      fs/fat/inode.o
+  CC      fs/f2fs/hash.o
+  CC      fs/ext4/dir.o
+  CC      kernel/trace/trace_nop.o
+  CC      fs/ext3/xattr_trusted.o
+  CC      fs/fat/misc.o
+  CC      fs/f2fs/super.o
+  CC      kernel/trace/trace_functions_graph.o
+  CC      fs/ext4/file.o
+  CC      fs/ext4/fsync.o
+  LD      fs/ext3/ext3.o
+  CC      fs/fat/nfs.o
+  LD      fs/ext3/built-in.o
+  CC      kernel/trace/blktrace.o
+  CC      fs/f2fs/checkpoint.o
+  CC      kernel/trace/trace_events.o
+  CC      kernel/trace/trace_export.o
+  CC      fs/fat/namei_vfat.o
+  CC      fs/ext4/ialloc.o
+  CC      fs/f2fs/gc.o
+  CC      fs/ext4/inode.o
+  CC      fs/f2fs/data.o
+  CC      kernel/trace/trace_event_perf.o
+  LD      fs/fat/fat.o
+  CC      fs/f2fs/node.o
+  LD      fs/fat/vfat.o
+  LD      fs/fat/built-in.o
+  CC      fs/ext4/page-io.o
+  CC      fs/f2fs/segment.o
+  CC      kernel/profile.o
+  CC      kernel/trace/trace_events_filter.o
+  CC      kernel/stacktrace.o
+  CC      kernel/trace/power-traces.o
+  CC      fs/f2fs/recovery.o
+  CC      fs/f2fs/debug.o
+  CC      fs/ext4/ioctl.o
+  CC      kernel/futex.o
+  CC      fs/ext4/namei.o
+  CC      kernel/trace/rpm-traces.o
+  CC      fs/ext4/super.o
+  LD      fs/f2fs/f2fs.o
+  LD      fs/f2fs/built-in.o
+  CC      kernel/trace/ipc_logging.o
+  CC      kernel/trace/ipc_logging_debug.o
+  CC      kernel/futex_compat.o
+  CC      kernel/smp.o
+  CC      fs/ext4/symlink.o
+  LD      kernel/trace/libftrace.o
+  CC      kernel/uid16.o
+  CC      fs/ext4/hash.o
+  LD      kernel/trace/built-in.o
+  CC      fs/ext4/resize.o
+  CC      kernel/system_keyring.o
+  CC      fs/ext4/extents.o
+  CC      fs/fuse/dev.o
+  CC      fs/jbd2/transaction.o
+  AS      kernel/system_certificates.o
+  CC      fs/jbd/transaction.o
+  CC      fs/nls/nls_base.o
+  CC      fs/jbd2/commit.o
+  CC      fs/ext4/ext4_jbd2.o
+  CC      fs/fuse/dir.o
+  CC      fs/nls/nls_cp437.o
+  CC      fs/jbd/commit.o
+  CC      fs/fuse/file.o
+  CC      kernel/kallsyms.o
+  CC      fs/jbd2/recovery.o
+  CC      fs/ext4/migrate.o
+  CC      fs/nls/nls_ascii.o
+  CC      fs/jbd/recovery.o
+  CC      fs/jbd2/checkpoint.o
+  CC      kernel/compat.o
+  CC      fs/nls/nls_iso8859-1.o
+  CC      fs/ext4/mballoc.o
+  CC      fs/fuse/inode.o
+  CC      fs/jbd/checkpoint.o
+  CC      fs/jbd2/revoke.o
+  CC      fs/nls/nls_utf8.o
+  CC      fs/ext4/block_validity.o
+  CC      fs/fuse/control.o
+  CC      kernel/cgroup.o
+  CC      fs/jbd/revoke.o
+  CC      fs/jbd2/journal.o
+  LD      fs/nls/built-in.o
+  CC      fs/ext4/move_extent.o
+  CC      fs/fuse/shortcircuit.o
+  CC      fs/jbd/journal.o
+  CC      kernel/cgroup_freezer.o
+  LD      fs/fuse/fuse.o
+  LD      fs/jbd2/jbd2.o
+  CC      fs/ext4/mmp.o
+  GZIP    kernel/config_data.gz
+  LD      fs/fuse/built-in.o
+  LD      fs/jbd2/built-in.o
+  CC      kernel/res_counter.o
+  LD      fs/jbd/jbd.o
+  CC      fs/ext4/indirect.o
+  LD      fs/jbd/built-in.o
+  CC      fs/ext4/extents_status.o
+  CC      fs/notify/fsnotify.o
+  CC      kernel/stop_machine.o
+  CC      fs/ext4/xattr.o
+  CC      fs/ext4/xattr_user.o
+  CC      kernel/seccomp.o
+  CC      fs/notify/notification.o
+  CC      fs/ext4/xattr_trusted.o
+  CC      kernel/relay.o
+  CC      fs/notify/group.o
+  CC      fs/notify/inode_mark.o
+  CC      kernel/utsname_sysctl.o
+  CC      fs/notify/mark.o
+  CC      kernel/delayacct.o
+  CC      fs/ext4/inline.o
+  CC      fs/notify/vfsmount_mark.o
+  CC      fs/ext4/xattr_security.o
+  CC      kernel/taskstats.o
+  CC      kernel/tsacct.o
+  CC      fs/notify/fdinfo.o
+  LD      fs/ext4/ext4.o
+  CC      fs/pstore/inode.o
+  CC      kernel/tracepoint.o
+  CC      fs/pstore/platform.o
+  LD      fs/ext4/built-in.o
+  CC      fs/proc/task_mmu.o
+  CC      fs/notify/dnotify/dnotify.o
+  CC      fs/proc/inode.o
+  CC      fs/proc/root.o
+  CC      kernel/elfcore.o
+  CC      fs/pstore/ram.o
+  CC      fs/pstore/ram_core.o
+  LD      fs/notify/dnotify/built-in.o
+  CC      fs/proc/base.o
+  CC      kernel/irq_work.o
+  CC      kernel/cpu_pm.o
+  CC      fs/notify/inotify/inotify_fsnotify.o
+  LD      fs/pstore/pstore.o
+  LD      fs/notify/fanotify/built-in.o
+  LD      fs/pstore/ramoops.o
+  LD      fs/pstore/built-in.o
+  CC      fs/notify/inotify/inotify_user.o
+  CC      fs/proc/generic.o
+  CC      fs/proc/array.o
+  LD      fs/notify/inotify/built-in.o
+  LD      fs/quota/built-in.o
+  BC      kernel/timeconst.h
+  LD      fs/notify/built-in.o
+  CHK     kernel/config_data.h
+  CC      fs/proc/fd.o
+  CC      fs/ramfs/inode.o
+  CC      kernel/time.o
+  UPD     kernel/config_data.h
+  CC      fs/proc/proc_tty.o
+  CC      fs/proc/cmdline.o
+  CC      fs/ramfs/file-mmu.o
+  CC      fs/proc/consoles.o
+  CC      kernel/configs.o
+  CC      fs/sdcardfs/dentry.o
+  CC      fs/sdcardfs/file.o
+  LD      fs/ramfs/ramfs.o
+  CC      fs/proc/cpuinfo.o
+  LD      fs/ramfs/built-in.o
+  CC      fs/proc/devices.o
+  CC      fs/proc/interrupts.o
+  CC      fs/sdcardfs/inode.o
+  CC      fs/sdcardfs/main.o
+  CC      fs/sdcardfs/super.o
+  CC      fs/proc/loadavg.o
+  CC      fs/proc/meminfo.o
+  CC      fs/proc/stat.o
+  CC      fs/sdcardfs/lookup.o
+  CC      fs/sdcardfs/mmap.o
+  CC      fs/proc/uptime.o
+  CC      fs/proc/version.o
+  CC      fs/sdcardfs/packagelist.o
+  CC      fs/sdcardfs/derived_perm.o
+  CC      fs/proc/softirqs.o
+  LD      kernel/built-in.o
+  LD      fs/sdcardfs/sdcardfs.o
+  LD      fs/sdcardfs/built-in.o
+  CC      fs/proc/namespaces.o
+  CC      fs/proc/self.o
+  CC      coolpad/drivers/input/touchscreen/touchscreen_yl.o
+  CC      fs/sdfat/sdfat.o
+  CC      coolpad/drivers/input/fingerprint/fpc_linux/fpc1020_main.o
+  CC      fs/proc/proc_sysctl.o
+/home/ubuntu/arnb/kernel/c6/coolpad/drivers/input/fingerprint/fpc_linux/fpc1020_main.c:195:32: warning: ‘fpc1020_pm’ defined but not used [-Wunused-const-variable=]
+ static const struct dev_pm_ops fpc1020_pm = {
+                                ^~~~~~~~~~
+  CC      fs/sdfat/core.o
+  CC      drivers/amba/bus.o
+  CC      sound/sound_core.o
+  CC      coolpad/drivers/input/fingerprint/fpc_linux/fpc1020_common.o
+  CC      coolpad/drivers/input/touchscreen/goodix-ts/gt9xx.o
+  CC      fs/proc/proc_net.o
+  CC      fs/sdfat/core_fat.o
+  LD      drivers/amba/built-in.o
+  CC      coolpad/drivers/input/fingerprint/fpc_linux/fpc1020_input.o
+  CC      fs/proc/proc_devtree.o
+  LD      sound/arm/built-in.o
+  CC      fs/sdfat/core_exfat.o
+  CC      drivers/android/binder.o
+  CC      coolpad/drivers/input/fingerprint/fpc_linux/fpc1020_capture.o
+  CC      fs/proc/kmsg.o
+  LD      sound/atmel/built-in.o
+  CC      fs/sdfat/api.o
+  LD      drivers/android/built-in.o
+  CC      coolpad/drivers/input/fingerprint/fpc_linux/fpc1020_regulator.o
+  CC      fs/proc/page.o
+  CC      fs/sdfat/blkdev.o
+  LD      drivers/auxdisplay/built-in.o
+  LD      coolpad/drivers/input/fingerprint/fpc_linux/fpc1020.o
+  LD      coolpad/drivers/input/fingerprint/fpc_linux/built-in.o
+  LD      fs/proc/proc.o
+  CC      fs/sdfat/fatent.o
+  LD      coolpad/drivers/input/fingerprint/built-in.o
+  CC      sound/core/compress_offload.o
+  LD      fs/proc/built-in.o
+  CC      sound/core/hwdep.o
+  CC      sound/core/memalloc.o
+  CC      drivers/base/core.o
+  CC      fs/sdfat/amap_smart.o
+  CC      fs/sdfat/cache.o
+  CC      fs/sdfat/dfr.o
+  CC      sound/core/pcm.o
+  CC      sound/core/pcm_native.o
+  CC      sound/core/pcm_lib.o
+  CC      drivers/base/bus.o
+  CC      fs/sdfat/nls.o
+  CC      fs/sdfat/misc.o
+  CC      fs/sdfat/mpage.o
+  CC      sound/core/pcm_timer.o
+  CC      drivers/base/dd.o
+  CC      sound/core/pcm_misc.o
+  CC      drivers/base/syscore.o
+  CC      fs/sdfat/extent.o
+  CC      sound/core/pcm_memory.o
+  CC      fs/sdfat/xattr.o
+  CC      drivers/base/driver.o
+  CC      fs/sdfat/statistics.o
+  CC      drivers/base/class.o
+  CC      sound/core/rawmidi.o
+  CC      sound/core/timer.o
+  LD      fs/sdfat/sdfat_fs.o
+  CC      drivers/base/platform.o
+  LD      fs/sdfat/built-in.o
+  CC      drivers/base/cpu.o
+  CC      sound/core/sound.o
+  CC      fs/eventpoll.o
+  CC      fs/sysfs/inode.o
+  CC      fs/sysfs/file.o
+  CC      drivers/base/firmware.o
+  CC      sound/core/init.o
+  CC      sound/core/memory.o
+  CC      fs/sysfs/dir.o
+  CC      sound/core/info.o
+  CC      drivers/base/init.o
+  CC      drivers/base/map.o
+  CC      fs/sysfs/symlink.o
+  CC      drivers/base/devres.o
+  CC      sound/core/control.o
+  CC      fs/sysfs/mount.o
+  CC      sound/core/misc.o
+  CC      drivers/base/attribute_container.o
+  CC      sound/core/device.o
+  CC      fs/sysfs/bin.o
+  CC      drivers/base/transport_class.o
+  CC      fs/sysfs/group.o
+  CC      sound/core/jack.o
+  CC      drivers/base/topology.o
+  LD      fs/sysfs/built-in.o
+  CC      fs/anon_inodes.o
+  LD      sound/firewire/built-in.o
+  LD      sound/core/snd.o
+  LD      sound/core/snd-hwdep.o
+  LD      sound/core/snd-timer.o
+  CC      drivers/base/dma-contiguous.o
+  CC      drivers/base/dma-removed.o
+  LD      sound/core/snd-pcm.o
+  LD      sound/core/snd-page-alloc.o
+  CC      fs/signalfd.o
+  LD      sound/core/snd-rawmidi.o
+  LD      sound/core/snd-compress.o
+  LD      sound/drivers/mpu401/built-in.o
+  LD      sound/core/built-in.o
+  CC      fs/timerfd.o
+  LD      sound/drivers/opl3/built-in.o
+  LD      sound/drivers/opl4/built-in.o
+  CC      drivers/base/power/sysfs.o
+  CC      drivers/base/power/generic_ops.o
+  CC      fs/eventfd.o
+  LD      sound/drivers/pcsp/built-in.o
+  CC      drivers/base/power/common.o
+  LD      sound/i2c/other/built-in.o
+  LD      sound/i2c/built-in.o
+  CC      fs/aio.o
+  CC      fs/locks.o
+  CC      drivers/block/brd.o
+  LD      sound/drivers/vx/built-in.o
+  CC      drivers/base/power/qos.o
+  LD      sound/drivers/built-in.o
+  CC      drivers/block/loop.o
+  CC      fs/compat.o
+  CC      fs/compat_ioctl.o
+  CC      drivers/base/power/main.o
+  CC      drivers/base/power/wakeup.o
+  CC      fs/binfmt_script.o
+  LD      sound/mips/built-in.o
+  CC      drivers/base/power/runtime.o
+  CC      drivers/base/power/opp.o
+  CC      drivers/block/zram/zcomp_lzo.o
+  LD      sound/isa/ad1816a/built-in.o
+  CC      fs/binfmt_elf.o
+  CC      drivers/block/zram/zcomp.o
+  CC      drivers/block/zram/zram_drv.o
+  CC      drivers/base/power/clock_ops.o
+  LD      sound/isa/ad1848/built-in.o
+  CC      drivers/block/zram/zcomp_lz4.o
+  CC      fs/compat_binfmt_elf.o
+  LD      drivers/base/power/built-in.o
+  LD      sound/isa/es1688/built-in.o
+  LD      sound/isa/cs423x/built-in.o
+  LD      drivers/block/zram/zram.o
+  CC      fs/mbcache.o
+  CC      drivers/base/dma-mapping.o
+  LD      drivers/block/zram/built-in.o
+  CC      drivers/base/regmap/regmap.o
+  LD      drivers/block/built-in.o
+  CC      drivers/base/regmap/regcache.o
+  LD      sound/isa/galaxy/built-in.o
+  CC      drivers/base/regmap/regcache-rbtree.o
+  CC      fs/coredump.o
+  CC      fs/drop_caches.o
+  CC      fs/dcookies.o
+  LD      sound/isa/gus/built-in.o
+  CC      drivers/base/regmap/regcache-lzo.o
+  CC      drivers/base/regmap/regcache-flat.o
+  LD      sound/isa/msnd/built-in.o
+  CC      drivers/base/regmap/regmap-debugfs.o
+  LD      sound/parisc/built-in.o
+  CC      drivers/base/regmap/regmap-i2c.o
+  LD      fs/built-in.o
+  LD      sound/isa/sb/built-in.o
+  LD      sound/isa/opti9xx/built-in.o
+  CC      drivers/base/regmap/regmap-spi.o
+  LD      sound/isa/wavefront/built-in.o
+  LD      coolpad/drivers/leds/built-in.o
+  LD      sound/isa/wss/built-in.o
+  CC      drivers/base/regmap/regmap-swr.o
+  LD      sound/isa/built-in.o
+  CC      drivers/bluetooth/bluetooth-power.o
+  CC      coolpad/drivers/misc/bootreason.o
+  LD      drivers/base/regmap/built-in.o
+  LD      drivers/bus/built-in.o
+  CC      drivers/base/dma-coherent.o
+  CC      coolpad/drivers/misc/createnode.o
+  LD      drivers/bluetooth/built-in.o
+  CC      coolpad/drivers/misc/yl_lcd.o
+  CC      drivers/base/dma-buf.o
+  CC      coolpad/drivers/misc/uei1700.o
+  LD      sound/pcmcia/pdaudiocf/built-in.o
+  CC      drivers/base/firmware_class.o
+  LD      sound/pci/ali5451/built-in.o
+  LD      sound/pci/ac97/built-in.o
+  CC      drivers/base/soc.o
+  LD      coolpad/drivers/misc/built-in.o
+  LD      sound/ppc/built-in.o
+  CC      drivers/base/pinctrl.o
+  LD      sound/pcmcia/vx/built-in.o
+  LD      sound/pci/asihpi/built-in.o
+  LD      sound/pcmcia/built-in.o
+  LD      drivers/base/built-in.o
+  LD      drivers/cdrom/built-in.o
+  LD      sound/pci/aw2/built-in.o
+  LD      sound/pci/au88x0/built-in.o
+  CC      drivers/char/mem.o
+  LD      sound/pci/ca0106/built-in.o
+  CC      drivers/clk/clk-devres.o
+  LD      sound/sh/built-in.o
+  CC      drivers/char/random.o
+  LD      sound/pci/cs46xx/built-in.o
+  CC      drivers/char/misc.o
+  LD      sound/pci/cs5535audio/built-in.o
+  CC      sound/soc/soc-core.o
+  CC      sound/soc/soc-dapm.o
+  CC      drivers/char/diag/diagchar_core.o
+  LD      sound/pci/ctxfi/built-in.o
+  CC      drivers/char/diag/diagchar_hdlc.o
+  CC      sound/soc/soc-jack.o
+  CC      sound/soc/soc-cache.o
+  LD      sound/pci/echoaudio/built-in.o
+  CC      sound/soc/soc-utils.o
+  LD      sound/pci/emu10k1/built-in.o
+  CC      sound/soc/soc-pcm.o
+  LD      sound/pci/hda/built-in.o
+  LD      sound/pci/ice1712/built-in.o
+  CC      sound/soc/soc-compress.o
+  CC      sound/soc/soc-io.o
+  LD      sound/pci/korg1212/built-in.o
+  CC      coolpad/drivers/input/touchscreen/goodix-ts/gt9xx_update.o
+  LD      sound/pci/lola/built-in.o
+  LD      sound/soc/atmel/built-in.o
+  CC      coolpad/drivers/input/touchscreen/goodix-ts/goodix_tool.o
+  LD      sound/pci/lx6464es/built-in.o
+  LD      coolpad/drivers/input/touchscreen/goodix-ts/built-in.o
+  LD      coolpad/drivers/input/touchscreen/built-in.o
+  LD      sound/soc/au1x/built-in.o
+  LD      coolpad/drivers/input/built-in.o
+  LD      sound/pci/mixart/built-in.o
+  LD      sound/soc/blackfin/built-in.o
+  LD      sound/pci/nm256/built-in.o
+  CC      drivers/clk/clkdev.o
+  LD      sound/soc/cirrus/built-in.o
+  LD      coolpad/drivers/mmc/card/built-in.o
+  LD      coolpad/drivers/mmc/built-in.o
+  LD      sound/pci/oxygen/built-in.o
+  LD      coolpad/drivers/power/built-in.o
+  LD      sound/pci/pcxhr/built-in.o
+  CC      coolpad/drivers/regulator/tps_65132.o
+  LD      sound/pci/riptide/built-in.o
+  CC      sound/soc/codecs/audio-ext-clk.o
+In file included from /home/ubuntu/arnb/kernel/c6/include/linux/atomic.h:4:0,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/spinlock.h:392,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/mmzone.h:7,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/gfp.h:4,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/slab.h:12,
+                 from /home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:13:
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c: In function ‘diag_ioctl_lsm_deinit’:
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:1384:21: error: ‘struct diagchar_dev’ has no member named ‘data_ready_notif’; did you mean ‘data_ready’?
+   atomic_inc(&driver->data_ready_notif[i]);
+                     ^
+/home/ubuntu/arnb/kernel/c6/arch/arm64/include/asm/atomic.h:144:38: note: in definition of macro ‘atomic_inc’
+ #define atomic_inc(v)  atomic_add(1, v)
+                                      ^
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c: In function ‘diagchar_read’:
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2579:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2587:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2595:1: error: version control conflict marker in file
+ >>>>>>> 1cb928572c1... Merge tag 'LA.BR.1.3.7.c25-09100-8976.0' of https://source.codeaurora.org/quic/la/kernel/msm-3.10 into q-10.x-rebase
+ ^~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2595:9: error: invalid suffix "cb928572c1..." on integer constant
+ >>>>>>> 1cb928572c1... Merge tag 'LA.BR.1.3.7.c25-09100-8976.0' of https://source.codeaurora.org/quic/la/kernel/msm-3.10 into q-10.x-rebase
+         ^~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2595:34: warning: character constant too long for its type
+ >>>>>>> 1cb928572c1... Merge tag 'LA.BR.1.3.7.c25-09100-8976.0' of https://source.codeaurora.org/quic/la/kernel/msm-3.10 into q-10.x-rebase
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2640:16: error: invalid storage class for function ‘diagchar_write’
+ static ssize_t diagchar_write(struct file *file, const char __user *buf,
+                ^~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2640:1: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+ static ssize_t diagchar_write(struct file *file, const char __user *buf,
+ ^~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2725:6: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+ void diag_ws_init()
+      ^~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2736:13: error: invalid storage class for function ‘diag_stats_init’
+ static void diag_stats_init(void)
+             ^~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2751:6: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+ void diag_ws_on_notify()
+      ^~~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2894:6: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+ void diag_ws_release()
+      ^~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2901:13: error: invalid storage class for function ‘diag_debug_init’
+ static void diag_debug_init(void)
+             ^~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2919:12: error: invalid storage class for function ‘diag_real_time_info_init’
+ static int diag_real_time_info_init(void)
+            ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2943:11: error: initializer element is not constant
+  .write = diagchar_write,
+           ^~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2943:11: note: (near initialization for ‘diagcharfops.write’)
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2952:12: error: invalid storage class for function ‘diagchar_setup_cdev’
+ static int diagchar_setup_cdev(dev_t devno)
+            ^~~~~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2987:12: error: invalid storage class for function ‘diagchar_cleanup’
+ static int diagchar_cleanup(void)
+            ^~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3004:19: error: invalid storage class for function ‘diagchar_init’
+ static int __init diagchar_init(void)
+                   ^~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3146:13: error: invalid storage class for function ‘diagchar_exit’
+ static void diagchar_exit(void)
+             ^~~~~~~~~~~~~
+In file included from /home/ubuntu/arnb/kernel/c6/include/linux/printk.h:5:0,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/kernel.h:13,
+                 from /home/ubuntu/arnb/kernel/c6/include/asm-generic/bug.h:13,
+                 from /home/ubuntu/arnb/kernel/c6/arch/arm64/include/asm/bug.h:48,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/bug.h:4,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/thread_info.h:11,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/preempt.h:9,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/spinlock.h:50,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/mmzone.h:7,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/gfp.h:4,
+                 from /home/ubuntu/arnb/kernel/c6/include/linux/slab.h:12,
+                 from /home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:13:
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3162:13: error: initializer element is not constant
+ module_init(diagchar_init);
+             ^
+/home/ubuntu/arnb/kernel/c6/include/linux/init.h:180:58: note: in definition of macro ‘__define_initcall’
+  __attribute__((__section__(".initcall" #id ".init"))) = fn
+                                                          ^~
+/home/ubuntu/arnb/kernel/c6/include/linux/init.h:214:24: note: in expansion of macro ‘device_initcall’
+ #define __initcall(fn) device_initcall(fn)
+                        ^~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/include/linux/init.h:268:24: note: in expansion of macro ‘__initcall’
+ #define module_init(x) __initcall(x);
+                        ^~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3162:1: note: in expansion of macro ‘module_init’
+ module_init(diagchar_init);
+ ^~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3163:13: error: initializer element is not constant
+ module_exit(diagchar_exit);
+             ^
+/home/ubuntu/arnb/kernel/c6/include/linux/init.h:217:50: note: in definition of macro ‘__exitcall’
+  static exitcall_t __exitcall_##fn __exit_call = fn
+                                                  ^~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3163:1: note: in expansion of macro ‘module_exit’
+ module_exit(diagchar_exit);
+ ^~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/include/linux/init.h:217:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  static exitcall_t __exitcall_##fn __exit_call = fn
+  ^
+/home/ubuntu/arnb/kernel/c6/include/linux/init.h:280:24: note: in expansion of macro ‘__exitcall’
+ #define module_exit(x) __exitcall(x);
+                        ^~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3163:1: note: in expansion of macro ‘module_exit’
+ module_exit(diagchar_exit);
+ ^~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:3163:1: error: expected declaration or statement at end of input
+At top level:
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2894:6: warning: ‘diag_ws_release’ defined but not used [-Wunused-function]
+ void diag_ws_release()
+      ^~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2868:6: warning: ‘diag_ws_reset’ defined but not used [-Wunused-function]
+ void diag_ws_reset(int type)
+      ^~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2840:6: warning: ‘diag_ws_on_copy_complete’ defined but not used [-Wunused-function]
+ void diag_ws_on_copy_complete(int type)
+      ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2815:6: warning: ‘diag_ws_on_copy_fail’ defined but not used [-Wunused-function]
+ void diag_ws_on_copy_fail(int type)
+      ^~~~~~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2792:6: warning: ‘diag_ws_on_copy’ defined but not used [-Wunused-function]
+ void diag_ws_on_copy(int type)
+      ^~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2760:6: warning: ‘diag_ws_on_read’ defined but not used [-Wunused-function]
+ void diag_ws_on_read(int type, int pkt_len)
+      ^~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2751:6: warning: ‘diag_ws_on_notify’ defined but not used [-Wunused-function]
+ void diag_ws_on_notify()
+      ^~~~~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/drivers/char/diag/diagchar_core.c:2424:16: warning: ‘diagchar_read’ defined but not used [-Wunused-function]
+ static ssize_t diagchar_read(struct file *file, char __user *buf, size_t count,
+                ^~~~~~~~~~~~~
+make[4]: *** [/home/ubuntu/arnb/kernel/c6/scripts/Makefile.build:308: drivers/char/diag/diagchar_core.o] Error 1
+make[3]: *** [/home/ubuntu/arnb/kernel/c6/scripts/Makefile.build:455: drivers/char/diag] Error 2
+make[2]: *** [/home/ubuntu/arnb/kernel/c6/scripts/Makefile.build:455: drivers/char] Error 2
+make[2]: *** Waiting for unfinished jobs....
+  LD      coolpad/drivers/regulator/built-in.o
+  LD      sound/pci/rme9652/built-in.o
+  CC      sound/soc/codecs/msm_stub.o
+  LD      sound/pci/trident/built-in.o
+  LD      sound/sparc/built-in.o
+  LD      sound/pci/vx222/built-in.o
+  LD      sound/spi/built-in.o
+  CC      sound/soc/codecs/msm8x16-wcd.o
+  LD      coolpad/drivers/sensors/accel/built-in.o
+  LD      sound/pci/ymfpci/built-in.o
+  LD      coolpad/drivers/staging/built-in.o
+  LD      sound/pci/built-in.o
+  LD      coolpad/drivers/sensors/alsprox/built-in.o
+  CC      sound/soc/codecs/msm8x16-wcd-tables.o
+  CC      sound/soc/codecs/wcd9xxx-common.o
+  CC      coolpad/drivers/usb/typec/fusb302.o
+  CC      coolpad/drivers/sensors/hall/coolpad_hall.o
+  CC      coolpad/drivers/usb/typec/usbpd.o
+  CC      sound/soc/codecs/wcd9xxx-resmgr.o
+  CC      sound/soc/codecs/wcd9xxx-mbhc.o
+  LD      coolpad/drivers/sensors/hall/built-in.o
+  LD      coolpad/drivers/sensors/built-in.o
+  CC      coolpad/drivers/usb/typec/vdm_bitfield_translators.o
+  CC      coolpad/drivers/usb/typec/vdm_manager.o
+  LD      sound/synth/built-in.o
+  CC      sound/soc/codecs/wcd9306.o
+  CC      sound/soc/codecs/wcd9306-tables.o
+  CC      sound/soc/codecs/wcd9330.o
+In file included from /home/ubuntu/arnb/kernel/c6/sound/soc/codecs/wcd9306.c:31:0:
+/home/ubuntu/arnb/kernel/c6/sound/soc/codecs/wcd9306.c:197:35: warning: ‘aux_pga_gain’ defined but not used [-Wunused-const-variable=]
+ static const DECLARE_TLV_DB_SCALE(aux_pga_gain, 0, 2, 0);
+                                   ^
+/home/ubuntu/arnb/kernel/c6/include/sound/tlv.h:59:15: note: in definition of macro ‘DECLARE_TLV_DB_SCALE’
+  unsigned int name[] = { TLV_DB_SCALE_ITEM(min, step, mute) }
+               ^~~~
+  LD      coolpad/drivers/usb/typec/built-in.o
+/home/ubuntu/arnb/kernel/c6/sound/soc/codecs/wcd9330.c:1249:30: warning: ‘tabla_ear_pa_gain_enum’ defined but not used [-Wunused-const-variable=]
+ static const struct soc_enum tabla_ear_pa_gain_enum[] = {
+                              ^~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/ubuntu/arnb/kernel/c6/sound/soc/codecs/wcd9330.c:32:0:
+/home/ubuntu/arnb/kernel/c6/sound/soc/codecs/wcd9330.c:430:35: warning: ‘aux_pga_gain’ defined but not used [-Wunused-const-variable=]
+ static const DECLARE_TLV_DB_SCALE(aux_pga_gain, 0, 2, 0);
+                                   ^
+/home/ubuntu/arnb/kernel/c6/include/sound/tlv.h:59:15: note: in definition of macro ‘DECLARE_TLV_DB_SCALE’
+  unsigned int name[] = { TLV_DB_SCALE_ITEM(min, step, mute) }
+               ^~~~
+  LD      coolpad/drivers/usb/built-in.o
+  CC      sound/soc/codecs/wcd9330-tables.o
+  LD      coolpad/drivers/built-in.o
+  LD      firmware/built-in.o
+  CC      sound/soc/codecs/wcdcal-hwdep.o
+  CC      sound/usb/card.o
+  CC      sound/usb/clock.o
+  CC      sound/last.o
+  CC      sound/soc/codecs/wcd9335.o
+  LD      sound/soundcore.o
+  CC      sound/usb/endpoint.o
+  CC      sound/soc/codecs/wcd9xxx-common-v2.o
+  CC      sound/usb/format.o
+  CC      sound/soc/codecs/wcd9xxx-resmgr-v2.o
+  CC      net/socket.o
+  LD      sound/soc/davinci/built-in.o
+  CC      sound/usb/helper.o
+  CC      sound/usb/mixer.o
+  LD      arch/arm64/lib/built-in.o
+  AS      arch/arm64/lib/bitops.o
+  CC      sound/soc/codecs/wcd_cpe_services.o
+  AS      arch/arm64/lib/clear_page.o
+  CC      sound/usb/mixer_quirks.o
+  CC      sound/soc/codecs/wcd_cpe_core.o
+  CC      sound/soc/codecs/wcd-mbhc-v2.o
+  CC      sound/usb/pcm.o
+  AS      arch/arm64/lib/clear_user.o
+  AS      arch/arm64/lib/copy_from_user.o
+  CC      sound/usb/proc.o
+  CC      sound/soc/codecs/wsa881x-analog.o
+  CC      drivers/clk/clk.o
+  CC      sound/usb/quirks.o
+  CC      sound/soc/codecs/wsa881x-tables-analog.o
+  AS      arch/arm64/lib/copy_in_user.o
+  CC      sound/usb/stream.o
+  CC      drivers/clk/qcom/clock.o
+  CC      sound/soc/codecs/wsa881x-regmap-analog.o
+  AS      arch/arm64/lib/copy_page.o
+  CC      sound/usb/midi.o
+  CC      sound/soc/codecs/wsa881x-irq.o
+  CC      sound/soc/codecs/wsa881x.o
+  AS      arch/arm64/lib/copy_to_user.o
+  LD      sound/usb/6fire/built-in.o
+  CC      sound/soc/codecs/wsa881x-tables.o
+  LD      sound/usb/caiaq/built-in.o
+  CC      arch/arm64/lib/delay.o
+  CC      sound/soc/codecs/wsa881x-regmap.o
+  LD      sound/usb/misc/built-in.o
+  CC      sound/soc/codecs/wsa881x-temp-sensor.o
+  LD      sound/usb/usx2y/built-in.o
+  LD      sound/usb/snd-usb-audio.o
+  CC      sound/soc/codecs/msm8916-wcd-irq.o
+  LD      sound/usb/snd-usbmidi-lib.o
+  LD      sound/usb/built-in.o
+  AS      arch/arm64/lib/memchr.o
+  LD      sound/soc/codecs/snd-soc-wcd-mbhc.o
+  LD      sound/soc/codecs/snd-soc-wsa881x-analog.o
+  LD      sound/soc/codecs/snd-soc-wsa881x.o
+  LD      sound/soc/codecs/snd-soc-msm-stub.o
+  LD      sound/soc/codecs/audio-ext-clock.o
+  LD      sound/soc/codecs/snd-soc-msm8x16-wcd.o
+  CC      drivers/clk/qcom/clock-dummy.o
+  LD      sound/soc/codecs/built-in.o
+  LD      sound/soc/dwc/built-in.o
+  LD      sound/soc/generic/built-in.o
+  LD      sound/soc/fsl/built-in.o
+  CC      drivers/clk/qcom/clock-generic.o
+  LD      sound/soc/jz4740/built-in.o
+  LD      sound/soc/kirkwood/built-in.o
+  LD      sound/soc/mid-x86/built-in.o
+  AS      arch/arm64/lib/memcmp.o
+  CC      sound/soc/msm/msm-cpe-lsm.o
+  AS      arch/arm64/lib/memcpy.o
+  CC      sound/soc/msm/msm-pcm-hostless.o
+  AS      arch/arm64/lib/memmove.o
+  CC      sound/soc/msm/msm8x16.o
+  AS      arch/arm64/lib/memset.o
+  CC      sound/soc/msm/msm8939-slimbus.o
+  CC      sound/soc/msm/msm-audio-pinctrl.o
+  AS      arch/arm64/lib/strchr.o
+  CC      sound/soc/msm/msm8952.o
+  CC      sound/soc/msm/msm8952-slimbus.o
+  AS      arch/arm64/lib/strcmp.o
+  CC      drivers/clk/qcom/clock-local2.o
+  CC      sound/soc/msm/msm8952-dai-links.o
+  AS      arch/arm64/lib/strlen.o
+  CC      sound/soc/msm/msm-dai-fe.o
+  AS      arch/arm64/lib/strncmp.o
+  LD      sound/soc/msm/snd-soc-qdsp6v2.o
+  CC      drivers/clk/qcom/clock-pll.o
+  CC      sound/soc/msm/qdsp6v2/msm-dai-q6-v2.o
+  AS      arch/arm64/lib/strnlen.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-q6-v2.o
+  AS      arch/arm64/lib/strrchr.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-routing-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-compress-q6-v2.o
+  AR      arch/arm64/lib/lib.a
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-lpa-v2.o
+  CC      drivers/clk/qcom/clock-alpha-pll.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-afe-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-voip-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-voice-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-dai-q6-hdmi-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-lsm-client.o
+  CC      lib/bcd.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-host-voice-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-audio-effects-q6-v2.o
+  CC      lib/div64.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-loopback-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-dai-slim.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-dtmf-v2.o
+  CC      lib/sort.o
+  CC      sound/soc/msm/qdsp6v2/msm-dai-stub-v2.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-routing-devdep.o
+  CC      sound/soc/msm/qdsp6v2/msm-dolby-dap-config.o
+  CC      sound/soc/msm/qdsp6v2/msm-ds2-dap-config.o
+  CC      sound/soc/msm/qdsp6v2/msm-dts-srs-tm-config.o
+  CC      sound/soc/msm/qdsp6v2/msm-qti-pp-config.o
+  CC      sound/soc/msm/qdsp6v2/audio_calibration.o
+  CC      sound/soc/msm/qdsp6v2/audio_cal_utils.o
+  CC      sound/soc/msm/qdsp6v2/q6adm.o
+  CC      drivers/clk/qcom/clock-rpm.o
+  CC      sound/soc/msm/qdsp6v2/q6afe.o
+  CC      sound/soc/msm/qdsp6v2/q6asm.o
+  CC      lib/parser.o
+  CC      sound/soc/msm/qdsp6v2/q6audio-v2.o
+  CC      sound/soc/msm/qdsp6v2/q6voice.o
+  CC      sound/soc/msm/qdsp6v2/q6core.o
+  CC      sound/soc/msm/qdsp6v2/rtac.o
+  CC      lib/halfmd4.o
+  CC      lib/debug_locks.o
+  CC      sound/soc/msm/qdsp6v2/q6lsm.o
+/home/ubuntu/arnb/kernel/c6/sound/soc/msm/qdsp6v2/q6lsm.c: In function ‘q6lsm_set_one_param’:
+/home/ubuntu/arnb/kernel/c6/sound/soc/msm/qdsp6v2/q6lsm.c:1436:2: warning: ‘memset’ used with constant zero length parameter; this could be due to transposed parameters [-Wmemset-transposed-args]
+  memset(&ids, sizeof(ids), 0);
+  ^~~~~~
+  CC      sound/soc/msm/qdsp6v2/audio_slimslave.o
+  CC      sound/soc/msm/qdsp6v2/msm-pcm-q6-noirq.o
+  CC      net/802/p8022.o
+  CC      net/802/psnap.o
+  CC      net/802/stp.o
+  LD      sound/soc/msm/qdsp6v2/snd-soc-qdsp6v2.o
+  LD      sound/soc/msm/qdsp6v2/built-in.o
+  LD      sound/soc/msm/snd-soc-cpe.o
+  LD      sound/soc/msm/snd-soc-msm8x16.o
+  LD      sound/soc/msm/snd-soc-hostless-pcm.o
+  LD      sound/soc/msm/built-in.o
+  CC      lib/random32.o
+  LD      sound/soc/mxs/built-in.o
+  LD      sound/soc/nuc900/built-in.o
+  CC      drivers/clk/qcom/clock-voter.o
+  LD      sound/soc/omap/built-in.o
+  LD      sound/soc/pxa/built-in.o
+  LD      sound/soc/s6000/built-in.o
+  LD      sound/soc/samsung/built-in.o
+  LD      sound/soc/sh/built-in.o
+  CC      lib/bust_spinlocks.o
+  LD      sound/soc/tegra/built-in.o
+  LD      sound/soc/txx9/built-in.o
+  LD      sound/soc/ux500/built-in.o
+  LD      sound/soc/snd-soc-core.o
+  LD      sound/soc/built-in.o
+  LD      sound/built-in.o
+  CC      drivers/clk/qcom/clock-pm.o
+  CC      lib/hexdump.o
+  CC      lib/kasprintf.o
+  CC      lib/bitmap.o
+  CC      drivers/clk/qcom/clock-debug.o
+  LD      net/802/built-in.o
+  CC      net/bluetooth/af_bluetooth.o
+  CC      net/bluetooth/hci_core.o
+  CC      net/bluetooth/hci_conn.o
+  CC      net/bluetooth/hci_event.o
+  CC      lib/scatterlist.o
+  CC      drivers/clk/qcom/clock-rpm-8916.o
+  CC      drivers/clk/qcom/clock-gcc-8916.o
+  CC      lib/gcd.o
+  CC      lib/lcm.o
+  CC      lib/list_sort.o
+  CC      drivers/clk/qcom/clock-rpm-8936.o
+  CC      net/bluetooth/mgmt.o
+  CC      lib/uuid.o
+  CC      drivers/clk/qcom/clock-gcc-8936.o
+  CC      lib/flex_array.o
+  CC      lib/iovec.o
+  CC      drivers/clk/qcom/clock-gcc-8952.o
+  CC      lib/bsearch.o
+  CC      lib/find_last_bit.o
+  CC      lib/find_next_bit.o
+  CC      lib/llist.o
+  CC      drivers/clk/qcom/clock-gcc-8976.o
+  CC      lib/memweight.o
+  CC      lib/kfifo.o
+  CC      net/bluetooth/hci_sock.o
+  CC      net/bluetooth/hci_sysfs.o
+  CC      drivers/clk/qcom/clock-rcgwr.o
+  CC      lib/string_helpers.o
+  CC      lib/kstrtox.o
+  CC      net/bluetooth/l2cap_core.o
+  CC      lib/iomap.o
+  CC      lib/pci_iomap.o
+  CC      lib/iomap_copy.o
+  CC      drivers/clk/qcom/clock-cpu-8976.o
+  CC      drivers/clk/qcom/clock-a7.o
+  CC      drivers/clk/qcom/clock-cpu-8939.o
+  CC      lib/devres.o
+  CC      lib/hweight.o
+  CC      net/bluetooth/l2cap_sock.o
+  CC      net/bluetooth/smp.o
+  CC      lib/bitrev.o
+  CC      lib/crc-ccitt.o
+  CC      drivers/clk/qcom/clock-cpu-8936.o
+  CC      drivers/clk/qcom/gdsc.o
+  CC      lib/crc16.o
+  HOSTCC  lib/gen_crc32table
+  CC      drivers/clk/qcom/mdss/mdss-pll-util.o
+  CC      drivers/clk/qcom/mdss/mdss-pll.o
+  CC      lib/libcrc32c.o
+  CC      lib/genalloc.o
+  CC      lib/lz4/lz4_compress.o
+  CC      lib/lzo/lzo1x_compress.o
+  CC      lib/mpi/generic_mpih-lshift.o
+  CC      drivers/clk/qcom/mdss/mdss-dsi-pll-util.o
+  CC      lib/mpi/generic_mpih-mul1.o
+  CC      lib/lzo/lzo1x_decompress_safe.o
+  CC      lib/lz4/lz4_decompress.o
+  CC      lib/reed_solomon/reed_solomon.o
+  CC      lib/mpi/generic_mpih-mul2.o
+  LD      lib/lzo/lzo_compress.o
+  LD      lib/lzo/lzo_decompress.o
+  LD      lib/lzo/built-in.o
+  CC      lib/mpi/generic_mpih-mul3.o
+  LD      lib/lz4/built-in.o
+  CC      drivers/clk/qcom/mdss/mdss-dsi-20nm-pll-util.o
+  CC      lib/zlib_deflate/deflate.o
+  CC      lib/zlib_deflate/deftree.o
+  CC      lib/mpi/generic_mpih-rshift.o
+  LD      lib/reed_solomon/built-in.o
+  CC      lib/mpi/generic_mpih-sub1.o
+  CC      lib/zlib_deflate/deflate_syms.o
+  CC      drivers/clk/qcom/mdss/mdss-dsi-pll-28hpm.o
+  CC      net/bluetooth/sco.o
+  CC      lib/mpi/generic_mpih-add1.o
+  CC      net/bluetooth/lib.o
+  CC      net/bluetooth/a2mp.o
+  LD      lib/zlib_deflate/zlib_deflate.o
+  LD      lib/zlib_deflate/built-in.o
+  CC      lib/mpi/mpicoder.o
+  CC      drivers/clk/qcom/mdss/mdss-dsi-pll-28lpm.o
+  CC      lib/zlib_inflate/inffast.o
+  CC      lib/zlib_inflate/inflate.o
+  CC      lib/zlib_inflate/infutil.o
+  CC      lib/mpi/mpi-bit.o
+  CC      lib/mpi/mpi-cmp.o
+  CC      drivers/clk/qcom/mdss/mdss-dsi-pll-20nm.o
+  CC      drivers/clk/qcom/mdss/mdss-edp-pll-28hpm.o
+  CC      lib/mpi/mpih-cmp.o
+  CC      drivers/clk/qcom/mdss/mdss-hdmi-pll-28hpm.o
+  CC      net/bluetooth/amp.o
+  CC      lib/zlib_inflate/inftrees.o
+  CC      lib/mpi/mpih-div.o
+  CC      lib/zlib_inflate/inflate_syms.o
+  CC      lib/mpi/mpih-mul.o
+  CC      lib/mpi/mpi-pow.o
+  LD      lib/zlib_inflate/zlib_inflate.o
+  LD      lib/zlib_inflate/built-in.o
+  CC      drivers/clk/qcom/mdss/mdss-hdmi-pll-20nm.o
+  CC      lib/textsearch.o
+  CC      lib/ts_kmp.o
+  CC      lib/ts_bm.o
+  CC      lib/mpi/mpiutil.o
+  CC      net/bluetooth/bnep/core.o
+  CC      net/bluetooth/bnep/sock.o
+  CC      net/bluetooth/bnep/netdev.o
+  LD      drivers/clk/qcom/mdss/built-in.o
+  LD      drivers/clk/qcom/built-in.o
+  LD      drivers/clk/built-in.o
+make[1]: *** [/home/ubuntu/arnb/kernel/c6/Makefile:845: drivers] Error 2
+make[1]: *** Waiting for unfinished jobs....
+  CC      lib/ts_fsm.o
+  CC      net/bluetooth/hidp/core.o
+  LD      lib/mpi/mpi.o
+  LD      lib/mpi/built-in.o
+  CC      net/bluetooth/hidp/sock.o
+  CC      lib/percpu_counter.o
+  CC      lib/swiotlb.o
+  CC      lib/iommu-helper.o
+  LD      net/bluetooth/bnep/bnep.o
+  LD      net/bluetooth/bnep/built-in.o
+  CC      lib/syscall.o
+  CC      lib/dynamic_debug.o
+  CC      net/bluetooth/rfcomm/core.o
+  CC      net/bluetooth/rfcomm/sock.o
+  CC      net/bluetooth/rfcomm/tty.o
+  LD      net/bluetooth/hidp/hidp.o
+  LD      net/bluetooth/hidp/built-in.o
+  LD      net/bluetooth/bluetooth.o
+  CC      lib/nlattr.o
+  CC      lib/checksum.o
+  CC      net/bridge/br.o
+  CC      net/bridge/br_device.o
+  CC      net/bridge/br_fdb.o
+  CC      lib/cpu_rmap.o
+  CC      lib/dynamic_queue_limits.o
+  CC      lib/clz_tab.o
+  CC      net/bridge/br_forward.o
+  CC      lib/qmi_encdec.o
+  LD      net/bluetooth/rfcomm/rfcomm.o
+  LD      net/bluetooth/rfcomm/built-in.o
+  LD      net/bluetooth/built-in.o
+  CC      lib/strncpy_from_user.o
+  CC      lib/strnlen_user.o
+  CC      net/bridge/br_if.o
+  CC      net/bridge/br_input.o
+  CC      net/bridge/br_ioctl.o
+  CC      lib/asn1_decoder.o
+  GEN     lib/oid_registry_data.c
+Compiling 49 OIDs
+  CC      net/bridge/br_notify.o
+  CC      lib/argv_split.o
+  CC      net/bridge/br_stp.o
+  CC      lib/bug.o
+  CC      net/bridge/br_stp_bpdu.o
+  CC      lib/cmdline.o
+  CC      net/bridge/br_stp_if.o
+  CC      lib/cpumask.o
+  CC      lib/ctype.o
+  CC      net/bridge/br_stp_timer.o
+  CC      net/bridge/br_netlink.o
+  CC      lib/dec_and_lock.o
+  CC      lib/decompress.o
+  CC      lib/decompress_bunzip2.o
+  CC      lib/decompress_inflate.o
+  CC      net/bridge/br_sysfs_if.o
+  CC      lib/decompress_unlzma.o
+  CC      net/core/sock.o
+  CC      net/core/request_sock.o
+  CC      net/core/skbuff.o
+  CC      net/core/iovec.o
+  CC      lib/dump_stack.o
+  CC      net/bridge/br_sysfs_br.o
+  CC      lib/earlycpio.o
+  CC      lib/extable.o
+  CC      net/core/datagram.o
+  CC      lib/fdt.o
+  CC      net/core/stream.o
+  CC      lib/fdt_ro.o
+  CC      lib/fdt_rw.o
+  CC      net/bridge/br_netfilter.o
+  CC      net/bridge/br_multicast.o
+  CC      net/bridge/br_mdb.o
+  CC      lib/fdt_strerror.o
+  CC      lib/fdt_sw.o
+  CC      net/core/scm.o
+  CC      lib/fdt_wip.o
+  CC      lib/flex_proportions.o
+  CC      net/core/gen_stats.o
+  CC      lib/idr.o
+  CC      lib/int_sqrt.o
+  CC      lib/ioremap.o
+  CC      net/bridge/netfilter/ebtables.o
+  CC      net/bridge/netfilter/ebtable_broute.o
+  CC      net/core/gen_estimator.o
+  CC      net/core/net_namespace.o
+  CC      lib/irq_regs.o
+  LD      net/bridge/bridge.o
+  CC      lib/is_single_threaded.o
+  CC      lib/klist.o
+  CC      lib/kobject.o
+  CC      net/ethernet/eth.o
+  CC      lib/kobject_uevent.o
+  CC      lib/md5.o
+  CC      net/core/secure_seq.o
+  CC      lib/plist.o
+  CC      net/core/flow_dissector.o
+  CC      net/core/sysctl_net_core.o
+  LD      net/ethernet/built-in.o
+  CC      net/core/dev.o
+  CC      net/ipc_router/ipc_router_core.o
+  CC      lib/prio_heap.o
+  CC      lib/proportions.o
+  LD      net/bridge/netfilter/built-in.o
+  LD      net/bridge/built-in.o
+  CC      lib/radix-tree.o
+  CC      lib/ratelimit.o
+  CC      net/core/ethtool.o
+  CC      lib/rbtree.o
+  CC      net/core/dev_addr_lists.o
+  CC      net/core/dst.o
+  CC      lib/reciprocal_div.o
+  CC      lib/sha1.o
+  CC      lib/show_mem.o
+  CC      net/core/netevent.o
+  CC      net/ipc_router/ipc_router_socket.o
+  CC      lib/string.o
+  CC      lib/timerqueue.o
+  CC      net/core/neighbour.o
+  CC      lib/vsprintf.o
+  CC      net/core/rtnetlink.o
+  CC      net/core/utils.o
+  CC      net/ipc_router/ipc_router_security.o
+  CC      net/core/link_watch.o
+  LD      net/ipc_router/built-in.o
+  CC      net/core/filter.o
+  CC      net/ipv4/route.o
+/home/ubuntu/arnb/kernel/c6/net/core/rtnetlink.c:1148:32: warning: ‘ifla_vf_policy’ defined but not used [-Wunused-const-variable=]
+ static const struct nla_policy ifla_vf_policy[IFLA_VF_MAX+1] = {
+                                ^~~~~~~~~~~~~~
+/home/ubuntu/arnb/kernel/c6/net/core/rtnetlink.c:1144:32: warning: ‘ifla_vfinfo_policy’ defined but not used [-Wunused-const-variable=]
+ static const struct nla_policy ifla_vfinfo_policy[IFLA_VF_INFO_MAX+1] = {
+                                ^~~~~~~~~~~~~~~~~~
+  CC      net/ipv4/inetpeer.o
+  GEN     lib/crc32table.h
+  CC      lib/oid_registry.o
+  AR      lib/lib.a
+  CC      net/core/sock_diag.o
+  CC      net/ipv4/protocol.o
+  CC      net/ipv4/ip_input.o
+  CC      lib/crc32.o
+  CC      net/core/dev_ioctl.o
+  CC      net/core/flow.o
+  CC      net/ipv6/af_inet6.o
+  LD      lib/built-in.o
+  CC      net/key/af_key.o
+  CC      net/ipv4/ip_fragment.o
+  CC      net/ipv4/ip_forward.o
+  CC      net/core/net-sysfs.o
+  CC      net/l2tp/l2tp_core.o
+  CC      net/ipv6/anycast.o
+  CC      net/ipv6/ip6_output.o
+  CC      net/ipv4/ip_options.o
+/home/ubuntu/arnb/kernel/c6/net/core/net-sysfs.c:30:19: warning: ‘fmt_long_hex’ defined but not used [-Wunused-const-variable=]
+ static const char fmt_long_hex[] = "%#lx\n";
+                   ^~~~~~~~~~~~
+  CC      net/core/net-procfs.o
+  CC      net/ipv4/ip_output.o
+  LD      net/key/built-in.o
+  CC      net/ipv4/ip_sockglue.o
+  CC      net/l2tp/l2tp_ppp.o
+  CC      net/core/fib_rules.o
+  CC      net/core/net-traces.o
+  CC      net/ipv6/ip6_input.o
+  CC      net/ipv4/inet_hashtables.o
+  CC      net/ipv6/addrconf.o
+  CC      net/core/sockev_nlmcast.o
+  CC      net/l2tp/l2tp_ip.o
+  CC      net/l2tp/l2tp_netlink.o
+  CC      net/ipv4/inet_timewait_sock.o
+  LD      net/core/built-in.o
+  CC      net/ipv4/inet_connection_sock.o
+  CC      net/llc/llc_core.o
+  CC      net/netfilter/core.o
+  CC      net/netfilter/nf_log.o
+  CC      net/l2tp/l2tp_eth.o
+  CC      net/llc/llc_input.o
+  CC      net/l2tp/l2tp_debugfs.o
+  CC      net/ipv4/tcp.o
+  CC      net/netfilter/nf_queue.o
+  CC      net/netfilter/nf_sockopt.o
+  CC      net/llc/llc_output.o
+  CC      net/ipv6/addrlabel.o
+  CC      net/ipv6/route.o
+  CC      net/netfilter/nf_conntrack_core.o
+  CC      net/l2tp/l2tp_ip6.o
+  LD      net/llc/llc.o
+  LD      net/llc/built-in.o
+  CC      net/netlink/af_netlink.o
+  CC      net/packet/af_packet.o
+  LD      net/l2tp/built-in.o
+  CC      net/ipv6/ip6_fib.o
+  CC      net/netfilter/nf_conntrack_standalone.o
+  CC      net/ipv4/tcp_input.o
+  CC      net/netlink/genetlink.o
+  CC      net/ipv4/tcp_output.o
+  CC      net/ipv6/ipv6_sockglue.o
+  CC      net/netfilter/nf_conntrack_expect.o
+  LD      net/packet/built-in.o
+  CC      net/netfilter/nf_conntrack_helper.o
+  LD      net/netlink/built-in.o
+  CC      net/netfilter/nf_conntrack_proto.o
+  CC      net/ipv6/ndisc.o
+  CC      net/rfkill/core.o
+  CC      net/rfkill/input.o
+  CC      net/netfilter/nf_conntrack_l3proto_generic.o
+  CC      net/netfilter/nf_conntrack_proto_generic.o
+  CC      net/ipv4/tcp_timer.o
+  LD      net/rfkill/rfkill.o
+  LD      net/rfkill/built-in.o
+  CC      net/ipv4/tcp_ipv4.o
+  CC      net/rmnet_data/rmnet_data_main.o
+  CC      net/netfilter/nf_conntrack_proto_tcp.o
+  CC      net/ipv6/udp.o
+  CC      net/ipv6/udplite.o
+  CC      net/netfilter/nf_conntrack_proto_udp.o
+  CC      net/rmnet_data/rmnet_data_config.o
+  CC      net/rmnet_data/rmnet_data_vnd.o
+  CC      net/rmnet_data/rmnet_data_handlers.o
+  CC      net/netfilter/nf_conntrack_extend.o
+  CC      net/ipv4/tcp_minisocks.o
+  CC      net/netfilter/nf_conntrack_acct.o
+  CC      net/ipv4/tcp_cong.o
+  CC      net/ipv6/raw.o
+  CC      net/ipv6/icmp.o
+  CC      net/rmnet_data/rmnet_map_data.o
+  CC      net/netfilter/nf_conntrack_ecache.o
+  CC      net/netfilter/nf_conntrack_h323_main.o
+  CC      net/ipv4/tcp_metrics.o
+  CC      net/rmnet_data/rmnet_map_command.o
+  CC      net/ipv4/tcp_fastopen.o
+  CC      net/ipv4/datagram.o
+  CC      net/ipv6/mcast.o
+  CC      net/rmnet_data/rmnet_data_stats.o
+  CC      net/ipv6/reassembly.o
+  CC      net/ipv6/tcp_ipv6.o
+  LD      net/rmnet_data/rmnet_data.o
+  LD      net/rmnet_data/built-in.o
+  CC      net/ipv6/ping.o
+  CC      net/netfilter/nf_conntrack_h323_asn1.o
+  CC      net/ipv4/raw.o
+  CC      net/netfilter/nf_nat_core.o
+  CC      net/ipv4/udp.o
+  CC      net/ipv4/udplite.o
+  CC      net/ipv4/arp.o
+  CC      net/ipv6/exthdrs.o
+  CC      net/ipv6/datagram.o
+  CC      net/netfilter/nf_nat_proto_unknown.o
+  CC      net/netfilter/nf_nat_proto_common.o
+/home/ubuntu/arnb/kernel/c6/net/ipv4/arp.c:152:31: warning: ‘arp_broken_ops’ defined but not used [-Wunused-const-variable=]
+ static const struct neigh_ops arp_broken_ops = {
+                               ^~~~~~~~~~~~~~
+  CC      net/netfilter/nf_nat_proto_udp.o
+  CC      net/ipv4/icmp.o
+  CC      net/ipv4/devinet.o
+  CC      net/netfilter/nf_nat_proto_tcp.o
+  CC      net/ipv6/ip6_flowlabel.o
+  CC      net/ipv6/inet6_connection_sock.o
+  CC      net/netfilter/nf_nat_helper.o
+  CC      net/netfilter/nfnetlink_queue_core.o
+  CC      net/netfilter/nfnetlink.o
+  CC      net/netfilter/nfnetlink_log.o
+  CC      net/ipv6/sysctl_net_ipv6.o
+  CC      net/ipv6/xfrm6_policy.o
+  CC      net/ipv4/af_inet.o
+/home/ubuntu/arnb/kernel/c6/net/netfilter/nfnetlink.c:43:18: warning: ‘nfnl_group2type’ defined but not used [-Wunused-const-variable=]
+ static const int nfnl_group2type[NFNLGRP_MAX+1] = {
+                  ^~~~~~~~~~~~~~~
+  CC      net/ipv4/igmp.o
+  CC      net/ipv4/fib_frontend.o
+  CC      net/ipv4/fib_semantics.o
+  CC      net/netfilter/nf_conntrack_proto_dccp.o
+  CC      net/ipv6/xfrm6_state.o
+  CC      net/ipv6/xfrm6_input.o
+  CC      net/ipv6/xfrm6_output.o
+  CC      net/netfilter/nf_conntrack_proto_gre.o
+  CC      net/netfilter/nf_conntrack_proto_sctp.o
+  CC      net/netfilter/nf_conntrack_proto_udplite.o
+  CC      net/ipv4/fib_trie.o
+  CC      net/ipv4/inet_fragment.o
+  CC      net/ipv6/netfilter.o
+  CC      net/ipv6/fib6_rules.o
+  CC      net/ipv4/ping.o
+  CC      net/netfilter/nf_conntrack_netlink.o
+  CC      net/netfilter/nf_conntrack_amanda.o
+  CC      net/netfilter/nf_conntrack_ftp.o
+  CC      net/ipv6/proc.o
+  CC      net/ipv6/ah6.o
+  CC      net/ipv4/ip_tunnel.o
+  CC      net/ipv6/esp6.o
+  CC      net/ipv6/ipcomp6.o
+  CC      net/ipv4/sysctl_net_ipv4.o
+  LD      net/netfilter/nf_conntrack_h323.o
+  CC      net/netfilter/nf_conntrack_irc.o
+  CC      net/ipv4/sysfs_net_ipv4.o
+  CC      net/ipv4/proc.o
+  CC      net/ipv6/xfrm6_tunnel.o
+  CC      net/ipv6/tunnel6.o
+  CC      net/ipv6/xfrm6_mode_transport.o
+  CC      net/netfilter/nf_conntrack_broadcast.o
+  CC      net/ipv6/xfrm6_mode_tunnel.o
+  CC      net/ipv4/fib_rules.o
+  CC      net/ipv4/ah4.o
+  CC      net/ipv6/xfrm6_mode_beet.o
+  CC      net/netfilter/nf_conntrack_netbios_ns.o
+  CC      net/netfilter/nf_conntrack_pptp.o
+  CC      net/ipv4/esp4.o
+  CC      net/netfilter/nf_conntrack_sane.o
+  CC      net/ipv6/mip6.o
+  CC      net/ipv6/netfilter/ip6_tables.o
+  CC      net/ipv6/netfilter/ip6table_filter.o
+  CC      net/ipv6/netfilter/ip6table_mangle.o
+  CC      net/netfilter/nf_conntrack_sip.o
+  CC      net/ipv4/ipcomp.o
+  CC      net/ipv4/xfrm4_tunnel.o
+  CC      net/ipv4/tunnel4.o
+  CC      net/ipv6/sit.o
+  CC      net/ipv6/addrconf_core.o
+  CC      net/ipv6/netfilter/ip6table_raw.o
+  CC      net/ipv6/exthdrs_core.o
+  CC      net/ipv4/xfrm4_mode_transport.o
+  CC      net/ipv4/xfrm4_mode_tunnel.o
+  CC      net/netfilter/nf_conntrack_tftp.o
+  CC      net/ipv6/netfilter/ip6table_security.o
+  LD      net/netfilter/nf_nat.o
+  CC      net/ipv6/ip6_checksum.o
+  CC      net/netfilter/nf_nat_proto_dccp.o
+  CC      net/ipv4/ipconfig.o
+  CC      net/ipv6/ip6_icmp.o
+  CC      net/netfilter/nf_nat_proto_udplite.o
+  CC      net/ipv6/netfilter/ip6table_nat.o
+  CC      net/ipv6/output_core.o
+  CC      net/netfilter/nf_nat_proto_sctp.o
+  CC      net/ipv6/netfilter/nf_conntrack_l3proto_ipv6.o
+  CC      net/ipv4/netfilter.o
+  CC      net/ipv6/protocol.o
+  CC      net/netfilter/nf_nat_amanda.o
+  CC      net/netfilter/nf_nat_ftp.o
+  CC      net/ipv6/ip6_offload.o
+  CC      net/ipv6/netfilter/nf_conntrack_proto_icmpv6.o
+  CC      net/ipv6/netfilter/nf_defrag_ipv6_hooks.o
+  CC      net/ipv4/netfilter/nf_conntrack_l3proto_ipv4_compat.o
+  CC      net/ipv4/netfilter/nf_conntrack_l3proto_ipv4.o
+  CC      net/netfilter/nf_nat_irc.o
+  CC      net/netfilter/nf_nat_sip.o
+  CC      net/ipv6/tcpv6_offload.o
+  CC      net/ipv6/netfilter/nf_conntrack_reasm.o
+  CC      net/ipv6/netfilter/nf_nat_l3proto_ipv6.o
+  CC      net/ipv6/netfilter/nf_nat_proto_icmpv6.o
+  CC      net/ipv4/netfilter/nf_conntrack_proto_icmp.o
+  CC      net/netfilter/nf_nat_tftp.o
+  CC      net/ipv4/netfilter/nf_nat_l3proto_ipv4.o
+  CC      net/ipv4/netfilter/nf_nat_proto_icmp.o
+  CC      net/ipv6/udp_offload.o
+  CC      net/ipv6/netfilter/ip6t_ah.o
+  CC      net/ipv6/exthdrs_offload.o
+  CC      net/netfilter/nf_tproxy_core.o
+  CC      net/ipv6/inet6_hashtables.o
+  CC      net/ipv4/netfilter/nf_defrag_ipv4.o
+  CC      net/ipv6/netfilter/ip6t_eui64.o
+  CC      net/ipv6/netfilter/ip6t_frag.o
+  CC      net/sched/sch_generic.o
+  CC      net/netfilter/x_tables.o
+  CC      net/ipv4/netfilter/nf_nat_h323.o
+  CC      net/ipv4/netfilter/nf_nat_pptp.o
+  CC      net/ipv6/netfilter/ip6t_ipv6header.o
+  CC      net/ipv6/netfilter/ip6t_mh.o
+  CC      net/sched/sch_mq.o
+  CC      net/netfilter/xt_tcpudp.o
+  CC      net/netfilter/xt_mark.o
+  CC      net/ipv4/netfilter/nf_nat_proto_gre.o
+  CC      net/ipv6/netfilter/ip6t_hbh.o
+  CC      net/ipv6/netfilter/ip6t_rpfilter.o
+  CC      net/sched/sch_api.o
+  CC      net/ipv6/netfilter/ip6t_rt.o
+  CC      net/ipv4/netfilter/ip_tables.o
+  CC      net/netfilter/xt_connmark.o
+  CC      net/netfilter/xt_nat.o
+  CC      net/netfilter/xt_CLASSIFY.o
+  CC      net/ipv6/netfilter/ip6t_REJECT.o
+  CC      net/ipv4/netfilter/iptable_filter.o
+  CC      net/ipv4/netfilter/iptable_mangle.o
+  CC      net/netfilter/xt_CONNSECMARK.o
+  CC      net/sched/sch_blackhole.o
+  CC      net/netfilter/xt_CT.o
+  CC      net/netfilter/xt_HL.o
+  CC      net/sched/cls_api.o
+  CC      net/ipv4/netfilter/iptable_nat.o
+  LD      net/ipv6/netfilter/nf_conntrack_ipv6.o
+  LD      net/ipv6/netfilter/nf_defrag_ipv6.o
+  LD      net/ipv6/netfilter/nf_nat_ipv6.o
+  LD      net/ipv6/netfilter/built-in.o
+  LD      net/ipv6/ipv6.o
+  LD      net/ipv6/built-in.o
+  CC      net/ipv4/netfilter/iptable_raw.o
+  CC      net/unix/af_unix.o
+  CC      net/unix/garbage.o
+  CC      net/netfilter/xt_LOG.o
+  CC      net/unix/sysctl_net_unix.o
+  CC      net/ipv4/netfilter/iptable_security.o
+  CC      net/sched/act_api.o
+  CC      net/sched/sch_fifo.o
+  CC      net/ipv4/netfilter/ipt_ah.o
+  CC      net/sched/sch_htb.o
+  CC      net/netfilter/xt_NETMAP.o
+  LD      net/unix/unix.o
+  LD      net/unix/built-in.o
+  CC      net/sched/sch_prio.o
+  CC      net/netfilter/xt_NFLOG.o
+  CC      net/ipv4/netfilter/ipt_rpfilter.o
+  CC      net/wireguard/main.o
+  CC      net/ipv4/netfilter/ipt_CLUSTERIP.o
+  CC      net/netfilter/xt_NFQUEUE.o
+  CC      net/netfilter/xt_REDIRECT.o
+  CC      net/netfilter/xt_SECMARK.o
+  CC      net/sched/cls_u32.o
+  CC      net/wireguard/noise.o
+  CC      net/sched/cls_fw.o
+  CC      net/netfilter/xt_TPROXY.o
+  CC      net/wireless/core.o
+  CC      net/ipv4/netfilter/ipt_ECN.o
+  CC      net/ipv4/netfilter/ipt_MASQUERADE.o
+  CC      net/sched/cls_flow.o
+  CC      net/wireless/sysfs.o
+  CC      net/wireguard/device.o
+  CC      net/netfilter/xt_TCPMSS.o
+  CC      net/ipv4/netfilter/ipt_REJECT.o
+  CC      net/ipv4/netfilter/arp_tables.o
+  CC      net/wireless/radiotap.o
+  CC      net/sched/ematch.o
+  CC      net/netfilter/xt_TEE.o
+  CC      net/wireguard/peer.o
+  CC      net/wireless/util.o
+  CC      net/wireless/reg.o
+  CC      net/sched/em_cmp.o
+  CC      net/ipv4/netfilter/arpt_mangle.o
+  CC      net/netfilter/xt_TRACE.o
+  CC      net/wireguard/timers.o
+  CC      net/sched/em_nbyte.o
+  CC      net/netfilter/xt_IDLETIMER.o
+  CC      net/ipv4/netfilter/arptable_filter.o
+  CC      net/netfilter/xt_HARDIDLETIMER.o
+  CC      net/sched/em_u32.o
+  CC      net/wireless/scan.o
+  CC      net/wireguard/queueing.o
+  CC      net/wireguard/send.o
+  LD      net/ipv4/netfilter/nf_conntrack_ipv4.o
+  LD      net/ipv4/netfilter/nf_nat_ipv4.o
+  LD      net/ipv4/netfilter/built-in.o
+  CC      net/ipv4/inet_diag.o
+  CC      net/sched/em_meta.o
+  CC      net/netfilter/xt_comment.o
+  CC      net/netfilter/xt_connlimit.o
+  CC      net/wireguard/receive.o
+  CC      net/wireless/nl80211.o
+  CC      net/netfilter/xt_conntrack.o
+  CC      net/wireguard/socket.o
+  CC      net/sched/em_text.o
+  CC      net/ipv4/tcp_diag.o
+  CC      net/ipv4/tcp_cubic.o
+  LD      net/sched/built-in.o
+  CC      net/ipv4/xfrm4_policy.o
+  CC      net/netfilter/xt_dscp.o
+  CC      net/xfrm/xfrm_policy.o
+  CC      net/wireguard/peerlookup.o
+  CC      net/xfrm/xfrm_state.o
+  CC      net/ipv4/xfrm4_state.o
+  CC      net/netfilter/xt_ecn.o
+  CC      net/wireguard/allowedips.o
+  CC      net/netfilter/xt_esp.o
+  CC      net/ipv4/xfrm4_input.o
+  CC      net/netfilter/xt_hashlimit.o
+  CC      net/wireguard/ratelimiter.o
+  CC      net/ipv4/xfrm4_output.o
+  CC      net/wireguard/cookie.o
+  CC      net/xfrm/xfrm_hash.o
+  CC      net/netfilter/xt_helper.o
+  LD      net/ipv4/built-in.o
+  CC      net/netfilter/xt_hl.o
+  CC      net/xfrm/xfrm_input.o
+  CC      net/xfrm/xfrm_output.o
+  CC      net/wireguard/netlink.o
+  CC      net/wireguard/crypto/zinc/chacha20/chacha20.o
+  CC      net/netfilter/xt_iprange.o
+  PERLASM net/wireguard/crypto/zinc/chacha20/chacha20-arm64.S
+  CC      net/xfrm/xfrm_sysctl.o
+  CC      net/xfrm/xfrm_replay.o
+  CC      net/netfilter/xt_length.o
+  CC      net/netfilter/xt_limit.o
+  CC      net/netfilter/xt_mac.o
+  CC      net/xfrm/xfrm_algo.o
+  CC      net/wireguard/crypto/zinc/poly1305/poly1305.o
+  CC      net/xfrm/xfrm_user.o
+  CC      net/wireless/mlme.o
+  CC      net/netfilter/xt_multiport.o
+  CC      net/netfilter/xt_pkttype.o
+  PERLASM net/wireguard/crypto/zinc/poly1305/poly1305-arm64.S
+  CC      net/wireguard/crypto/zinc/chacha20poly1305.o
+  CC      net/xfrm/xfrm_ipcomp.o
+  CC      net/netfilter/xt_policy.o
+  CC      net/wireguard/crypto/zinc/blake2s/blake2s.o
+  LD      net/xfrm/built-in.o
+  CC      net/wireguard/crypto/zinc/curve25519/curve25519.o
+  CC      net/wireguard/compat/siphash/siphash.o
+  CC      net/wireless/ibss.o
+  CC      net/netfilter/xt_qtaguid_print.o
+  CC      net/netfilter/xt_qtaguid.o
+  CC      net/wireguard/compat/dst_cache/dst_cache.o
+  CC      net/netfilter/xt_quota.o
+  CC      net/netfilter/xt_quota2.o
+  CC      net/wireless/sme.o
+  CC      net/wireless/chan.o
+  CC      net/wireless/ethtool.o
+  CC      net/wireguard/compat/udp_tunnel/udp_tunnel.o
+  CC      net/netfilter/xt_socket.o
+  AS      net/wireguard/crypto/zinc/chacha20/chacha20-arm64.o
+  CC      net/netfilter/xt_state.o
+  CC      net/netfilter/xt_statistic.o
+  CC      net/wireless/mesh.o
+  AS      net/wireguard/crypto/zinc/poly1305/poly1305-arm64.o
+  CC      net/netfilter/xt_string.o
+  LD      net/wireguard/wireguard.o
+  LD      net/wireguard/built-in.o
+  CC      net/netfilter/xt_time.o
+  CC      net/netfilter/xt_u32.o
+  CC      net/wireless/ap.o
+  CC      net/wireless/trace.o
+  CC      net/compat.o
+  CC      net/sysctl_net.o
+  LD      net/netfilter/netfilter.o
+  LD      net/netfilter/nfnetlink_queue.o
+  LD      net/netfilter/nf_conntrack.o
+  LD      net/netfilter/built-in.o
+  CC      net/wireless/wext-core.o
+  CC      net/activity_stats.o
+  CC      net/wireless/wext-proc.o
+  CC      net/wireless/wext-spy.o
+  CC      net/wireless/wext-priv.o
+  CC      net/wireless/regdb.o
+  LD      net/wireless/cfg80211.o
+  LD      net/wireless/built-in.o
+  LD      net/built-in.o
+make: *** [Makefile:130: sub-make] Error 2
+[0;33m***********************************************
+                 Zipping up                    
+***********************************************
+cp: cannot stat 'out/arch/arm64/boot/Image.gz-dtb': No such file or directory
+  adding: LICENSE (deflated 72%)
+  adding: META-INF/ (stored 0%)
+  adding: META-INF/com/ (stored 0%)
+  adding: META-INF/com/google/ (stored 0%)
+  adding: META-INF/com/google/android/ (stored 0%)
+  adding: META-INF/com/google/android/update-binary (deflated 71%)
+  adding: META-INF/com/google/android/updater-script (stored 0%)
+  adding: anykernel.sh (deflated 55%)
+  adding: modules/ (stored 0%)
+  adding: modules/system/ (stored 0%)
+  adding: modules/system/lib/ (stored 0%)
+  adding: modules/system/lib/modules/ (stored 0%)
+  adding: patch/ (stored 0%)
+  adding: ramdisk/ (stored 0%)
+  adding: tools/ (stored 0%)
+  adding: tools/magiskpolicy (deflated 28%)
+  adding: tools/ak3-core.sh (deflated 73%)
+  adding: tools/magiskboot (deflated 34%)
+  adding: tools/busybox (deflated 37%)
+[0;36m***********************************************
+            Cleaning up the mess created               
+***********************************************[0m
+  CLEAN   .
+  CLEAN   arch/arm64/kernel/vdso
+  CLEAN   arch/arm64/kernel
+  CLEAN   crypto/asymmetric_keys
+  CLEAN   kernel
+  CLEAN   lib
+  CLEAN   net/wireguard
+  CLEAN   net/wireless
+  CLEAN   security/selinux
+  CLEAN   usr
+  CLEAN   .tmp_versions
+  CLEAN   scripts/basic
+  CLEAN   scripts/dtc
+  CLEAN   scripts/kconfig
+  CLEAN   scripts/mod
+  CLEAN   scripts/selinux/genheaders
+  CLEAN   scripts/selinux/mdp
+  CLEAN   scripts
+  CLEAN   include/config include/generated arch/arm64/include/generated
+  CLEAN   .config .version include/generated/uapi/linux/version.h
+[01;32m Build completed in 1 minute(s) and 4 seconds.[0m
+]0;ubuntu@ip-172-31-43-13: ~/arnb/kernel/c6[01;32mubuntu@ip-172-31-43-13[00m:[01;34m~/arnb/kernel/c6[00m$ [K]0;ubuntu@ip-172-31-43-13: ~/arnb/kernel/c6[01;32mubuntu@ip-172-31-43-13[00m:[01;34m~/arnb/kernel/c6[00m$ [K]0;ubuntu@ip-172-31-43-13: ~/arnb/kernel/c6[01;32mubuntu@ip-172-31-43-13[00m:[01;34m~/arnb/kernel/c6[00m$ [K]0;ubuntu@ip-172-31-43-13: ~/arnb/kernel/c6[01;32mubuntu@ip-172-31-43-13[00m:[01;34m~/arnb/kernel/c6[00m$ [K]0;ubuntu@ip-172-31-43-13: ~/arnb/kernel/c6[01;32mubuntu@ip-172-31-43-13[00m:[01;34m~/arnb/kernel/c6[00m$ [K]0;ubuntu@ip-172-31-43-13: ~/arnb/kernel/c6[01;32mubuntu@ip-172-31-43-13[00m:[01;34m~/arnb/kernel/c6[00m$ exit
+exit
+
+Script done on 2020-07-20 17:22:51+0000
