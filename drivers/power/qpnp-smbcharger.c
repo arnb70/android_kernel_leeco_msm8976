@@ -404,19 +404,13 @@ module_param_named(
 	int, S_IRUSR | S_IWUSR
 );
 
-static int smbchg_default_hvdcp_icl_ma = 2100;
+static int smbchg_default_hvdcp_icl_ma = 3000;
 module_param_named(
 	default_hvdcp_icl_ma, smbchg_default_hvdcp_icl_ma,
 	int, S_IRUSR | S_IWUSR
 );
 
-static int smbchg_default_hvdcp3_icl_ma = 2100;
-module_param_named(
-	default_hvdcp3_icl_ma, smbchg_default_hvdcp3_icl_ma,
-	int, S_IRUSR | S_IWUSR
-);
-
-static int smbchg_default_dcp_icl_ma = 2100;
+static int smbchg_default_dcp_icl_ma = 2000;
 module_param_named(
 	default_dcp_icl_ma, smbchg_default_dcp_icl_ma,
 	int, S_IRUSR | S_IWUSR
@@ -1059,7 +1053,7 @@ static int get_prop_batt_voltage_now(struct smbchg_chip *chip)
 	return uv;
 }
 
-#define DEFAULT_BATT_VOLTAGE_MAX_DESIGN	4200000
+#define DEFAULT_BATT_VOLTAGE_MAX_DESIGN	4400000
 static int get_prop_batt_voltage_max_design(struct smbchg_chip *chip)
 {
 	int uv, rc;
@@ -1659,7 +1653,7 @@ static int smbchg_set_usb_current_max(struct smbchg_chip *chip,
 			}
 			chip->usb_max_current_ma = 500;
 		}
-		if ((current_ma == CURRENT_500_MA) || (current_ma == CURRENT_900_MA)) { //AP: Fast charge for USB
+		if ((current_ma == CURRENT_500_MA) || (current_ma == CURRENT_900_MA)) {	// AP: Fast charge for USB
 			rc = smbchg_sec_masked_write(chip,
 					chip->usb_chgpth_base + CHGPTH_CFG,
 					CFG_USB_2_3_SEL_BIT, CFG_USB_3);
@@ -2115,12 +2109,8 @@ static void smbchg_parallel_usb_enable(struct smbchg_chip *chip,
 			"Couldn't set Vflt on parallel psy rc: %d\n", rc);
 		return;
 	}
-	rc = power_supply_set_voltage_limit(chip->usb_psy,
+	power_supply_set_voltage_limit(chip->usb_psy,
 			(chip->vfloat_mv + 50) * 1000);
-	if (rc < 0) {
-		dev_err(chip->dev,
-			"Couldn't set Vflt on usb psy rc: %d\n", rc);
-	}
 	/* Set USB ICL */
 	target_icl_ma = get_effective_result_locked(chip->usb_icl_votable);
 
@@ -3119,19 +3109,16 @@ static int smbchg_float_voltage_set(struct smbchg_chip *chip, int vfloat_mv)
 				rc);
 	}
 
-	rc = power_supply_set_voltage_limit(chip->usb_psy,
-				(vfloat_mv * 1000) + 50);
-	if (rc)
-		dev_err(chip->dev, "Couldn't set float voltage on usb psy rc: %d\n",
-			rc);
-
 	rc = smbchg_sec_masked_write(chip, chip->chgr_base + VFLOAT_CFG_REG,
 			VFLOAT_MASK, temp);
 
 	if (rc)
 		dev_err(chip->dev, "Couldn't set float voltage rc = %d\n", rc);
-	else
+	else {
 		chip->vfloat_mv = vfloat_mv;
+		power_supply_set_voltage_limit(chip->usb_psy,
+				chip->vfloat_mv * 1000);
+	}
 
 	return rc;
 }
@@ -4339,7 +4326,7 @@ static int smbchg_set_optimal_charging_mode(struct smbchg_chip *chip, int type)
 static int smbchg_change_usb_supply_type(struct smbchg_chip *chip,
 						enum power_supply_type type)
 {
-	int rc, current_limit_ma;
+	int rc, current_limit_ma = DEFAULT_SDP_MA;
 	union power_supply_propval propval;
 
 	/*
@@ -4356,7 +4343,8 @@ static int smbchg_change_usb_supply_type(struct smbchg_chip *chip,
 		current_limit_ma = DEFAULT_SDP_MA;
 	else if (type == POWER_SUPPLY_TYPE_USB_CDP)
 		current_limit_ma = DEFAULT_CDP_MA;
-	else if (type == POWER_SUPPLY_TYPE_USB_HVDCP)
+	else if (type == POWER_SUPPLY_TYPE_USB_HVDCP
+			|| type == POWER_SUPPLY_TYPE_USB_HVDCP_3)
 		current_limit_ma = smbchg_default_hvdcp_icl_ma;
 	else
 		current_limit_ma = smbchg_default_dcp_icl_ma;
@@ -5766,7 +5754,6 @@ static enum power_supply_property smbchg_battery_properties[] = {
 	POWER_SUPPLY_PROP_RESTRICTED_CHARGING,
 	POWER_SUPPLY_PROP_ALLOW_HVDCP3,
 	POWER_SUPPLY_PROP_MAX_PULSE_ALLOWED,
-	POWER_SUPPLY_PROP_VENDOR,
 };
 
 static int smbchg_battery_set_property(struct power_supply *psy,
@@ -5788,7 +5775,6 @@ static int smbchg_battery_set_property(struct power_supply *psy,
 		rc = vote(chip->dc_suspend_votable, USER_EN_VOTER,
 				!val->intval, 0);
 		chip->chg_enabled = val->intval;
-		power_supply_changed(chip->usb_psy);
 		schedule_work(&chip->usb_set_online_work);
 		break;
 	case POWER_SUPPLY_PROP_CAPACITY:
@@ -5953,9 +5939,6 @@ static int smbchg_battery_get_property(struct power_supply *psy,
 		break;
 	case POWER_SUPPLY_PROP_INPUT_CURRENT_NOW:
 		val->intval = smbchg_get_iusb(chip);
-		break;
-	case POWER_SUPPLY_PROP_VENDOR:
-		val->strval = "pmic,qpnp-charger";
 		break;
 	case POWER_SUPPLY_PROP_ALLOW_HVDCP3:
 		val->intval = chip->allow_hvdcp3_detection;
@@ -6998,7 +6981,7 @@ static int smbchg_hw_init(struct smbchg_chip *chip)
 
 	/* battery missing detection */
 	mask =  BATT_MISSING_ALGO_BIT;
-	reg = chip->bmd_algo_disabled ? BATT_MISSING_ALGO_BIT : 0;
+	reg = chip->bmd_algo_disabled ? 0 : BATT_MISSING_ALGO_BIT;
 	if (chip->bmd_pin_src < BPD_TYPE_DEFAULT) {
 		mask |= BMD_PIN_SRC_MASK;
 		reg |= chip->bmd_pin_src << PIN_SRC_SHIFT;
@@ -7884,6 +7867,8 @@ static int smbchg_probe(struct spmi_device *spmi)
 						rc);
 			return rc;
 		}
+	} else {
+		vadc_dev = NULL;
 	}
 
 	if (of_find_property(spmi->dev.of_node, "qcom,vchg_sns-vadc", NULL)) {
