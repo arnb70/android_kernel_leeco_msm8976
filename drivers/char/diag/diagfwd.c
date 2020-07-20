@@ -445,6 +445,8 @@ void diag_update_sleeping_process(int process_id, int data_type)
 		if (driver->client_map[i].pid == process_id) {
 			if (!(driver->data_ready[i] & data_type)) {
 				driver->data_ready[i] |= data_type;
+				atomic_inc(&driver->data_ready_notif[i]);
+
 			}
 			break;
 		}
